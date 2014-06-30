@@ -1,5 +1,61 @@
 
 
+function isRetinaDisplay() {
+    var displayScale = 1;
+    if ([[NSScreen mainScreen] respondsToSelector:NSSelectorFromString("backingScaleFactor")]) {
+        var screens = [NSScreen screens];
+        for (var i = 0; i < [screens count]; i++) {
+            var s = [[screens objectAtIndex:i] backingScaleFactor];
+            if (s > displayScale)
+                displayScale = s;
+        }
+    }
+
+    return displayScale==2;
+}
+
+
+function createAlert(direction) {
+    var alert = COSAlertWindow.new();
+
+    function createTextFieldWithLavel(label,defaultValue) {
+        alert.addTextLabelWithValue(label);
+        alert.addTextFieldWithValue(defaultValue);
+    }
+
+    // Set icon.
+    var scriptPath = scriptPath || sketch.scriptPath;
+    var pluginPath = scriptPath.substring(0, scriptPath.lastIndexOf('/'));
+
+    function imageSuffix() {
+        return isRetinaDisplay() ? "@2x" : "";
+    }
+
+    var imageFilePath=pluginPath + '/images/' + direction + imageSuffix() + '.png';
+    var icon = NSImage.alloc().initByReferencingFile(imageFilePath);
+    alert.setIcon(icon);
+
+    function capitalizeString(string)
+    {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    alert.setMessageText("Repeat and Duplicate: "+capitalizeString(direction)+"!");
+    alert.setInformativeText("This tool takes the current selection and copies it to the current layer a specified number of times in a specified direction.");
+
+    // Repeats
+    createTextFieldWithLavel("Repeats:","1");
+
+    // Spacing
+    createTextFieldWithLavel(((direction=="left" || direction=="right") ? "Horizontal" : "Vertical") + " Spacing (pixels):","10");
+
+    // Actions buttons.
+    alert.addButtonWithTitle('OK');
+    alert.addButtonWithTitle('Cancel');
+
+    return alert;
+}
+
 
 function duplicate(direction,showOptionsAlert) {
     if(selectionContainsArtboards()) {
@@ -17,13 +73,37 @@ function duplicate(direction,showOptionsAlert) {
     var padding = 10;
     var times = 1;
 
+    if(showOptionsAlert) {
+        function handleAlertResponse(alert, responseCode) {
+            if (responseCode == "1000") {
+                function valAtIndex (view, index) {
+                    return parseInt(view.viewAtIndex(index).stringValue());
+                }
+
+                return {
+                    padding: valAtIndex(alert,3),
+                    times: valAtIndex(alert,1)
+                }
+            }
+
+            return null;
+        }
+        var alert=createAlert(direction);
+        var options=handleAlertResponse(alert,alert.runModal());
+        if(options==null) {
+            return;
+        }
+
+        padding=options.padding;
+        times=options.times;
+    }
+
     for(var n=0;n<times;n++) {
 
         var action=doc.actionsController().actionWithName("MSCanvasActions");
         action.duplicate(nil);
 
         var sel=doc.findSelectedLayers();
-        log(sel);
 
         var size=getSelectionSize(sel);
 
