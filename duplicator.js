@@ -1,80 +1,75 @@
 
 
-function cloneSelectedLayers() {
-    var clones=[];
+
+function duplicate(direction,showOptionsAlert) {
+    if(selectionContainsArtboards()) {
+        doc.displayMessage("🚫🚫🚫 Can't duplicate Artboards! Please remove all the artboards from the selection. 🚫🚫🚫");
+        return;
+    }
+
+    if(selection.count()<1) {
+        doc.displayMessage("🚫🚫🚫 Can't duplicate an emptiness! Please select some layers and try again. 🚫🚫🚫");
+        return;
+    }
+
+    var showOptionsAlert=showOptionsAlert || false;
+
+    var padding = 10;
+    var times = 1;
+
+    for(var n=0;n<times;n++) {
+
+        var action=doc.actionsController().actionWithName("MSCanvasActions");
+        action.duplicate(nil);
+
+        var sel=doc.findSelectedLayers();
+        log(sel);
+
+        var size=getSelectionSize(sel);
+
+        for(var i=0;i<sel.count();i++) {
+            var layer=sel.objectAtIndex(i);
+            var rect=layer.frame();
+
+            if(direction=="above") {
+                rect.subtractY(size.h+padding);
+            } else if(direction=="below") {
+                rect.addY(size.h+padding);
+            } else if(direction=="right") {
+                rect.addX(size.w+padding);
+            } else if(direction=="left") {
+                rect.subtractX(size.w+padding);
+            }
+        }
+    }
+}
+
+function selectionContainsArtboards() {
     for(var i=0;i<selection.count();i++) {
         var layer=selection.objectAtIndex(i);
-        clones.push(layer.duplicate());
-        layer.setIsSelected(false);
-    }
-    return clones;
-}
-
-function deselectAllLayers() {
-    for (var i=0; i<selection.count(); i++) {
-        selection[i].setIsSelected(false);
-    }
-}
-
-
-
-function duplicate(direction,paddings) {
-    if(selection.count()<1) return;
-
-    var direction = direction || "right";
-    var paddings = paddings || 10;
-
-    var bounds=getSelectionBounds();
-    var clones = cloneSelectedLayers();
-
-    // deselectAllLayers();
-
-    var w=bounds.maxX-bounds.minX;
-    var h=bounds.maxY-bounds.minY;
-
-    var paddings=10;
-
-
-    for(var i=0;i<clones.length;i++) {
-        var layer=clones[i];
-        var rect=clones[i].frame();
-
-        [layer select:true byExpandingSelection:true ];
-        // layer.setIsSelected(true);
-
-        if(direction=="above") {
-            rect.subtractY(h+paddings);
-        } else if(direction=="below") {
-            rect.addY(h+paddings);
-        } else if(direction=="right") {
-            rect.addX(w+paddings);
-        } else if(direction=="left") {
-            rect.subtractX(w+paddings);
-        }
-
+        if(layer.className()=="MSArtboardGroup") return true;
     }
 
-    // doc.currentView().refresh();
+    return false;
 }
 
-function getSelectionBounds() {
+function getSelectionSize(sel) {
     var minX,minY,maxX,maxY;
-    minX=minY=10000000;
-    maxX=maxY=-10000000;
+    minX=minY=Number.MAX_VALUE;
+    // maxX=maxY=Number.MIN_VALUE; // Have no idea why it doesn't work.. :(
+    maxX=maxY=-0xFFFFFFFF;
 
-    for(var i=0;i<selection.count();i++) {
-        var rect=selection.objectAtIndex(i).frame();
-        if(rect.minX()<minX) minX=rect.minX();
-        if(rect.minY()<minY) minY=rect.minY();
-        if(rect.maxX()>maxX) maxX=rect.maxX();
-        if(rect.maxY()>maxY) maxY=rect.maxY();
+    for(var i=0;i<sel.count();i++) {
+        var rect=sel.objectAtIndex(i).frame();
 
+        minX=Math.min(minX,rect.minX());
+        minY=Math.min(minY,rect.minY());
+        maxX=Math.max(maxX,rect.maxX());
+        maxY=Math.max(maxY,rect.maxY());
     }
 
     return {
-        minX: minX,
-        minY: minY,
-        maxX: maxX,
-        maxY: maxY
+        w: maxX-minX,
+        h: maxY-minY
     };
 }
