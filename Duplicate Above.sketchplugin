@@ -1,0 +1,3 @@
+// Duplicate selected layers above (control command ↑)
+#import 'duplicator.js'
+duplicate("above");

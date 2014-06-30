@@ -1,0 +1,3 @@
+// Duplicate selected layers right (control command →)
+#import 'duplicator.js'
+duplicate("right");
