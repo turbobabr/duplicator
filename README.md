@@ -1,4 +1,4 @@
 DuplicateIt
 ===========
 
-test.
+test
