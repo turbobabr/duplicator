@@ -1,1 +1,65 @@
-// TO-DO: Cheatsheet inserter goes here!
+
+function getCurrentCanvas() {
+    var page = doc.currentPage(),
+        artboard = doc.currentPage().currentArtboard(),
+        currentCanvas = artboard ? artboard : page;
+
+    return currentCanvas;
+}
+
+function getPluginFolderPath() {
+
+    var scriptPath = scriptPath || sketch.scriptPath;
+    return scriptPath.substring(0, scriptPath.lastIndexOf('/'));
+}
+
+
+function loadCheatSheetImg() {
+    return NSImage.alloc().initByReferencingFile(getPluginFolderPath() + '/images/cheatsheet.png')
+}
+
+function addImgToGroup (group, img, layerName) {
+    var imageCollection = group.documentData().images();
+    var imageData = imageCollection.addImage_name_convertColourspace(img, layerName, false);
+    var newImage = MSBitmapLayer.alloc().initWithImage_parentFrame_name(imageData, group.frame(), layerName);
+    group.addLayer(newImage);
+
+    return newImage;
+}
+
+
+var canvas=getCurrentCanvas();
+
+
+if(canvas.className()=="MSArtboardGroup") {
+
+    var artboard = MSArtboardGroup.alloc().init();
+    artboard.frame().setX(10);
+    artboard.frame().setY(10);
+    artboard.frame().setWidth(500);
+    artboard.frame().setHeight(500);
+
+    artboard.setName("Duplicator Plugin: Cheatsheet!");
+
+
+    var anchorArtboard=doc.artboards().objectAtIndex(doc.artboards().count()-1);
+    artboard.frame().setX(anchorArtboard.frame().x()+anchorArtboard.frame().width()+100);
+    artboard.frame().setY(anchorArtboard.frame().y());
+
+    canvas.parentGroup().addLayer(artboard);
+
+    var imageLayer=addImgToGroup(artboard,loadCheatSheetImg(),"Cheatsheet Image");
+
+
+    artboard.frame().setWidth(imageLayer.frame().width());
+    artboard.frame().setHeight(imageLayer.frame().height());
+
+    imageLayer.frame().setX(0);
+    imageLayer.frame().setY(0);
+
+    // imageLayer.setIsLocked(true);
+
+
+} else {
+    addImgToGroup(canvas,loadCheatSheetImg(),"Cheatsheet Image");
+}
