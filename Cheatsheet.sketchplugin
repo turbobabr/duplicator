@@ -1,12 +1,4 @@
 
-function getCurrentCanvas() {
-    var page = doc.currentPage(),
-        artboard = doc.currentPage().currentArtboard(),
-        currentCanvas = artboard ? artboard : page;
-
-    return currentCanvas;
-}
-
 function getPluginFolderPath() {
 
     var scriptPath = scriptPath || sketch.scriptPath;
@@ -27,9 +19,7 @@ function addImgToGroup (group, img, layerName) {
     return newImage;
 }
 
-
-var canvas=getCurrentCanvas();
-if(canvas.className()=="MSArtboardGroup") {
+if(doc.artboards() && doc.artboards().count()>0) {
 
     var artboard = MSArtboardGroup.alloc().init();
     artboard.frame().setX(10);
@@ -43,11 +33,9 @@ if(canvas.className()=="MSArtboardGroup") {
     var anchorArtboard=doc.artboards().objectAtIndex(doc.artboards().count()-1);
     artboard.frame().setX(anchorArtboard.frame().x()+anchorArtboard.frame().width()+100);
     artboard.frame().setY(anchorArtboard.frame().y());
-
-    canvas.parentGroup().addLayer(artboard);
+    doc.currentPage().addLayer(artboard);
 
     var imageLayer=addImgToGroup(artboard,loadCheatSheetImg(),"Cheatsheet Image");
-
 
     artboard.frame().setWidth(imageLayer.frame().width());
     artboard.frame().setHeight(imageLayer.frame().height());
@@ -56,7 +44,7 @@ if(canvas.className()=="MSArtboardGroup") {
     imageLayer.frame().setY(0);
 
 } else {
-    var imageLayer=addImgToGroup(canvas,loadCheatSheetImg(),"Duplicator Plugin: Cheatsheet!");
+    var imageLayer=addImgToGroup(doc.currentPage(),loadCheatSheetImg(),"Duplicator Plugin: Cheatsheet!");
     imageLayer.frame().setX(Math.round(imageLayer.frame().x()));
     imageLayer.frame().setY(Math.round(imageLayer.frame().y()));
 }
