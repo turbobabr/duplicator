@@ -47,12 +47,15 @@ Since this plugin is totally useless without shortcuts I decided to built it in 
 
 ### Step and Repeat
 
+This feature gives an ability to quickly duplicate and repeat selected layers by the same distance in a specified direction. This one is ideal for making grids and lists! There is a [built-in feature in Sketch](http://www.sketchtips.info/?tip=29) that does the same thing, but it requires a few extra steps to achieve the same result.
+
 1. Select one or more layers you want to duplicate multiple times
 2. Step and repeat selection with custom spacing:
   * ⌘ + ⌃ + ⇧ + `RIGHT arrow key`: repeat right
   * ⌘ + ⌃ + ⇧ + `LEFT arrow key`: repeat left
   * ⌘ + ⌃ + ⇧ + `UP arrow key`: repeat above
   * ⌘ + ⌃ + ⇧ + `DOWN arrow key`: repeat below
+3. Specify number of copies and distance betweet them in the popup dialog:
 
 ## Version history
 
