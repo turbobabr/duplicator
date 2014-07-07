@@ -55,7 +55,9 @@ This feature gives an ability to quickly duplicate and repeat selected layers by
   * ⌘ + ⌃ + ⇧ + `LEFT arrow key`: repeat left
   * ⌘ + ⌃ + ⇧ + `UP arrow key`: repeat above
   * ⌘ + ⌃ + ⇧ + `DOWN arrow key`: repeat below
-3. Specify number of copies and distance betweet them in the popup dialog:
+3. Specify number of copies and distance between them in the popup dialog:
+   ![Step and Repeat Dialog](http://turbobabr.github.io/duplicator/images/step-and-repeat-dialog.png)
+
 
 ## Version history
 
