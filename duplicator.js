@@ -40,7 +40,7 @@ function createAlert(direction) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-    alert.setMessageText("Repeat and Duplicate: "+capitalizeString(direction)+"!");
+    alert.setMessageText("Repeat and Duplicate: "+capitalizeString(direction));
     alert.setInformativeText("This tool takes the current selection and copies it to the current layer a specified number of times in a specified direction.");
 
     // Repeats
@@ -70,8 +70,8 @@ function duplicate(direction,showOptionsAlert) {
 
     var showOptionsAlert=showOptionsAlert || false;
 
-    var padding = 10;
-    var times = 1;
+    var spacing = 10;
+    var repeats = 1;
 
     if(showOptionsAlert) {
         function handleAlertResponse(alert, responseCode) {
@@ -81,8 +81,8 @@ function duplicate(direction,showOptionsAlert) {
                 }
 
                 return {
-                    padding: valAtIndex(alert,3),
-                    times: valAtIndex(alert,1)
+                    spacing: valAtIndex(alert,3),
+                    repeats: valAtIndex(alert,1)
                 }
             }
 
@@ -94,11 +94,11 @@ function duplicate(direction,showOptionsAlert) {
             return;
         }
 
-        padding=options.padding;
-        times=options.times;
+        spacing=options.spacing;
+        repeats=options.repeats;
     }
 
-    for(var n=0;n<times;n++) {
+    for(var n=0;n<repeats;n++) {
 
         var action=doc.actionsController().actionWithName("MSCanvasActions");
         action.duplicate(nil);
@@ -112,13 +112,13 @@ function duplicate(direction,showOptionsAlert) {
             var rect=layer.frame();
 
             if(direction=="above") {
-                rect.subtractY(size.h+padding);
+                rect.subtractY(size.h+spacing);
             } else if(direction=="below") {
-                rect.addY(size.h+padding);
+                rect.addY(size.h+spacing);
             } else if(direction=="right") {
-                rect.addX(size.w+padding);
+                rect.addX(size.w+spacing);
             } else if(direction=="left") {
-                rect.subtractX(size.w+padding);
+                rect.subtractX(size.w+spacing);
             }
         }
     }
