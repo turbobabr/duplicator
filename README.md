@@ -5,6 +5,10 @@ Duplicator
 
 A small [Sketch 3](http://bohemiancoding.com/sketch/) plugin that takes the currently selected layers and copies them once or multiple times in a specified direction. A must have tool for any UI/UX designer's tool belt who uses Sketch on a daily basis! :)
 
+Here is a short screencast that demonstrates all the features of the plugin:
+
+[![Paste Cheatsheet](http://turbobabr.github.io/duplicator/images/paste-cheatsheet.png)](http://youtu.be/-CoHd9a-wnc)
+
 ## Installation
 
 1. [Download the ZIP file with the plugin](https://github.com/turbobabr/duplicator/zipball/master).
