@@ -32,10 +32,10 @@ Since this plugin is totally useless without shortcuts I decided to built it in 
 
 1. Select one or more layers to duplicate
 2. Duplicate selection:
-  * ⌘ + ⌃ + `right arrow key`: duplicate right
-  * ⌘ + ⌃ + `left arrow key`: duplicate left
-  * ⌘ + ⌃ + `up arrow key`: duplicate above
-  * ⌘ + ⌃ + `down arrow key`: duplicate below
+  * ⌘ + ⌃ + `RIGHT arrow key`: duplicate right
+  * ⌘ + ⌃ + `LEFT arrow key`: duplicate left
+  * ⌘ + ⌃ + `UP arrow key`: duplicate above
+  * ⌘ + ⌃ + `DOWN arrow key`: duplicate below
 
 ### Step and Repeat
 
