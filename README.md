@@ -3,15 +3,19 @@ Duplicator
 
 (Work in progress....)
 
-A small Sketch plugin that takes the currently selected layers and copies them once or multiple times in a specified direction. A must have tool for any UI/UX designer's tool belt! :)
+A small [Sketch 3](http://bohemiancoding.com/sketch/) plugin that takes the currently selected layers and copies them once or multiple times in a specified direction. A must have tool for any UI/UX designer's tool belt who uses Sketch on a daily basis! :)
 
 ## Installation
 
-1. Download (...).
+1. [Download the ZIP file with the plugin](https://github.com/turbobabr/duplicator/zipball/master).
 
 2. Reveal plugins folder in finder ('Sketch App Menu' -> 'Plugins' -> 'Reveal Plugins Folder...').
 
-3. Copy (...) file to the folder and un-zip it.
+3. Copy downloaded zip file to the revealed folder and un-zip it.
+
+4. Rename the extracted folder to "Duplicate"
+
+5. You're ready to start! :)
 
 ## Usage
 
@@ -49,6 +53,8 @@ Since this plugin is totally useless without shortcuts I decided to built it in 
 ## License
 
 The MIT License (MIT)
+
+Copyright (c) 2014 Andrey Shakhmin
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
