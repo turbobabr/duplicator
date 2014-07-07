@@ -61,5 +61,7 @@ if(canvas.className()=="MSArtboardGroup") {
 
 
 } else {
-    addImgToGroup(canvas,loadCheatSheetImg(),"Cheatsheet Image");
+    var imageLayer=addImgToGroup(canvas,loadCheatSheetImg(),"Cheatsheet Image");
+    imageLayer.frame().setX(Math.round(imageLayer.frame().x()));
+    imageLayer.frame().setY(Math.round(imageLayer.frame().y()));
 }
