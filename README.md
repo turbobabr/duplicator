@@ -7,7 +7,7 @@ A small [Sketch 3](http://bohemiancoding.com/sketch/) plugin that takes the curr
 
 Here is a short screencast that demonstrates all the features of the plugin:
 
-[![Paste Cheatsheet](http://turbobabr.github.io/duplicator/images/play-screencast-image.png)](http://youtu.be/-CoHd9a-wnc)
+<a href="http://youtu.be/-CoHd9a-wnc" target="_blank"><img src="http://turbobabr.github.io/duplicator/images/play-screencast-image.png" alt="Sketch 3 Duplicator Plugin Screencast"/></a>
 
 ## Installation
 
