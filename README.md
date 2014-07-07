@@ -22,20 +22,20 @@ Since this plugin is totally useless without shortcuts I decided to built it in 
 
 ##### In order to see the cheat sheet, just run "Cheatsheet" plugin from the plugins menu:
 
-![Paste Cheatsheet](http://turbobabr.github.io/duplicator/images/paste-cheatsheet.png)
+   ![Paste Cheatsheet](http://turbobabr.github.io/duplicator/images/paste-cheatsheet.png)
 
 ##### It will automatically embed the cheat sheet into your current page as a new artboard:
 
-![Sketch Duplicator Plugin Cheatsheet](http://turbobabr.github.io/duplicator/images/plugin-cheatsheet.png)
+   ![Sketch Duplicator Plugin Cheatsheet](http://turbobabr.github.io/duplicator/images/plugin-cheatsheet.png)
 
 ### Quick Duplicate
 
 1. Select one or more layers to duplicate
 2. Duplicate selection:
-⋅⋅* ⌘ + ⌃ + `right arrow key`: duplicate right
-⋅⋅* ⌘ + ⌃ + `left arrow key`: duplicate left
-⋅⋅* ⌘ + ⌃ + `up arrow key`: duplicate above
-⋅⋅* ⌘ + ⌃ + `down arrow key`: duplicate below
+  * ⌘ + ⌃ + `right arrow key`: duplicate right
+  * ⌘ + ⌃ + `left arrow key`: duplicate left
+  * ⌘ + ⌃ + `up arrow key`: duplicate above
+  * ⌘ + ⌃ + `down arrow key`: duplicate below
 
 ### Step and Repeat
 
