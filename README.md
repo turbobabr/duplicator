@@ -30,11 +30,13 @@ Since this plugin is totally useless without shortcuts I decided to built it in 
 
 ### Quick Duplicate
 
-TODO: Text goes here.
+1. Select one or more layers to duplicate
+2. `⌘⌃` + `arrow keys`
 
 ### Step and Repeat
 
-TODO: Text goes here.
+1. Select one or more layers you want to duplicate multiple times
+2. `⌘⌃⇧` + `arrow keys`
 
 ## License
 
