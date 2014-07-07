@@ -29,8 +29,6 @@ function addImgToGroup (group, img, layerName) {
 
 
 var canvas=getCurrentCanvas();
-
-
 if(canvas.className()=="MSArtboardGroup") {
 
     var artboard = MSArtboardGroup.alloc().init();
@@ -57,11 +55,8 @@ if(canvas.className()=="MSArtboardGroup") {
     imageLayer.frame().setX(0);
     imageLayer.frame().setY(0);
 
-    // imageLayer.setIsLocked(true);
-
-
 } else {
-    var imageLayer=addImgToGroup(canvas,loadCheatSheetImg(),"Cheatsheet Image");
+    var imageLayer=addImgToGroup(canvas,loadCheatSheetImg(),"Duplicator Plugin: Cheatsheet!");
     imageLayer.frame().setX(Math.round(imageLayer.frame().x()));
     imageLayer.frame().setY(Math.round(imageLayer.frame().y()));
 }

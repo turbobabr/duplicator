@@ -1,6 +1,7 @@
 
 
 function isRetinaDisplay() {
+    /*
     var displayScale = 1;
     if ([[NSScreen mainScreen] respondsToSelector:NSSelectorFromString("backingScaleFactor")]) {
         var screens = [NSScreen screens];
@@ -12,6 +13,9 @@ function isRetinaDisplay() {
     }
 
     return displayScale==2;
+    */
+
+    return NSScreen.isOnRetinaScreen();
 }
 
 
