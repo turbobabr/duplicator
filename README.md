@@ -15,10 +15,13 @@ A small Sketch plugin that takes the currently selected layers and copies them o
 
 ## Usage
 
-### Instant Duplicator Cheatsheet
+### Instant Cheatsheet
+I prefer to use keyboard shortcuts whenever possible, but I'm really bad at remembering them. A few years ago I found out that in order to remember them quickly it's very helpful to have a small cheat sheet that contains all the keyboard shortcuts right in front of my eyes while learning a new tool. Since these plugin is totally useless without shortcuts I decided to built it in right into the plugin itself! This cheat sheet is just a plugin that embeds raster image containing shortcut reference into your current page.
 
-![Paste Cheatsheet](http://turbobabr.github.io/duplicator/images/paste-cheatsheet.png)
+In order to see the cheat sheet, just run "Cheatsheet" plugin from the plugins menu:
+- ![Paste Cheatsheet](http://turbobabr.github.io/duplicator/images/paste-cheatsheet.png)
 
+It will automatically embed it into your current page as an artboard:
 ![Sketch Duplicator Plugin Cheatsheet](http://turbobabr.github.io/duplicator/images/plugin-cheatsheet.png)
 
 ### Quick Duplicate
