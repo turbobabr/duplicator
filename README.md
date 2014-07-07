@@ -21,11 +21,11 @@ I prefer to use keyboard shortcuts whenever possible, but I'm really bad at reme
 Since this plugin is totally useless without shortcuts I decided to built it in right into the plugin itself! This cheat sheet is just a plugin that embeds raster image containing shortcut reference into your current page.
 
 In order to see the cheat sheet, just run "Cheatsheet" plugin from the plugins menu:
-
+---
 ![Paste Cheatsheet](http://turbobabr.github.io/duplicator/images/paste-cheatsheet.png)
 
 It will automatically embed the cheat sheet into your current page as a new artboard:
-
+---
 ![Sketch Duplicator Plugin Cheatsheet](http://turbobabr.github.io/duplicator/images/plugin-cheatsheet.png)
 
 ### Quick Duplicate
