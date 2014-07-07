@@ -41,7 +41,7 @@ function createAlert(direction) {
     }
 
     alert.setMessageText("Repeat and Duplicate: "+capitalizeString(direction));
-    alert.setInformativeText("This tool takes the current selection and copies it to the current layer a specified number of times in a specified direction.");
+    alert.setInformativeText("This tool takes the current selection and copies it a specified number of times in a specified direction.");
 
     // Repeats
     createTextFieldWithLavel("Repeats:","1");
