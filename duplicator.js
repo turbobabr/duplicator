@@ -44,7 +44,7 @@ function createAlert(direction) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-    alert.setMessageText("Repeat and Duplicate: "+capitalizeString(direction));
+    alert.setMessageText("Step and Repeat: "+capitalizeString(direction));
     alert.setInformativeText("This tool takes the current selection and copies it a specified number of times in a specified direction.");
 
     // Repeats

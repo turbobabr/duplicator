@@ -13,6 +13,20 @@ A small Sketch plugin that takes the currently selected layers and copies them o
 
 3. Copy (...) file to the folder and un-zip it.
 
+## Usage
+
+# Inline Cheatsheet
+
+TODO: Text goes here.
+
+# Quick duplicate
+
+TODO: Text goes here.
+
+# Step and Repeat
+
+TODO: Text goes here.
+
 ## License
 
 The MIT License (MIT)
