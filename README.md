@@ -15,15 +15,15 @@ A small Sketch plugin that takes the currently selected layers and copies them o
 
 ## Usage
 
-# Inline Cheatsheet
+### Inline Cheatsheet
 
 TODO: Text goes here.
 
-# Quick duplicate
+### Quick duplicate
 
 TODO: Text goes here.
 
-# Step and Repeat
+### Step and Repeat
 
 TODO: Text goes here.
 
