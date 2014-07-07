@@ -17,7 +17,9 @@ A small Sketch plugin that takes the currently selected layers and copies them o
 
 ### Inline Cheatsheet
 
-TODO: Text goes here.
+![Paste Cheatsheet](http://turbobabr.github.io/duplicator/images/paste-cheatsheet.png)
+
+![Sketch Duplicator Plugin Cheatsheet](http://turbobabr.github.io/duplicator/images/plugin-cheatsheet.png)
 
 ### Quick duplicate
 
