@@ -19,7 +19,7 @@ Here is a short screencast that demonstrates all the features of the plugin:
 
 4. Rename the extracted folder to "Duplicate"
 
-5. You're ready to start! :)
+5. That's it! :)
 
 ## Usage
 
@@ -53,6 +53,14 @@ Since this plugin is totally useless without shortcuts I decided to built it in 
   * ⌘ + ⌃ + ⇧ + `LEFT arrow key`: repeat left
   * ⌘ + ⌃ + ⇧ + `UP arrow key`: repeat above
   * ⌘ + ⌃ + ⇧ + `DOWN arrow key`: repeat below
+
+## Version history
+
+TODO: Text goes here.
+
+## Feedback
+
+TODO: Text goes here.
 
 ## License
 
