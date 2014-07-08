@@ -49,6 +49,7 @@ Since this plugin is totally useless without shortcuts I decided to built it in 
 
 This feature gives an ability to quickly duplicate and repeat selected layers by the same distance in a specified direction. This one is ideal for making grids and lists! There is a [built-in feature in Sketch](http://www.sketchtips.info/?tip=29) that does the same thing, but it requires a few extra steps to achieve the same result.
 
+How to use:
 1. Select one or more layers you want to duplicate multiple times
 2. Step and repeat selection with custom spacing:
   * ⌘ + ⌃ + ⇧ + `RIGHT arrow key`: repeat right
