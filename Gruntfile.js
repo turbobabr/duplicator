@@ -1,3 +1,4 @@
+
 module.exports = function(grunt) {
 
     grunt.initConfig({
@@ -5,7 +6,7 @@ module.exports = function(grunt) {
         compress: {
             main: {
                 options: {
-                    archive: 'distr/Duplicator.zip',
+                    archive: 'distr/duplicator.zip',
                     mode: 'zip'
                 },
                 files: [{ expand: true, src : "../Duplicator/**/*", cwd : "" }]
