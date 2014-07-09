@@ -3,7 +3,7 @@ Duplicator
 
 (Work in progress....)
 
-A small [Sketch 3](http://bohemiancoding.com/sketch/) plugin that takes the currently selected layers and copies them once or multiple times in a specified direction. A must have tool for any UI/UX designer's tool belt who uses Sketch on a daily basis! :)
+A small [Sketch 3](http://bohemiancoding.com/sketch/) plugin that takes the currently selected layers and copies them once or multiple times in a specified direction. A must have tool for any UI/UX designer who uses Sketch on a daily basis! :)
 
 Here is a short screencast that demonstrates all the features of the plugin:
 
@@ -26,7 +26,7 @@ Here is a short screencast that demonstrates all the features of the plugin:
 ### Instant Cheatsheet
 I prefer to use keyboard shortcuts whenever possible, but I'm really bad at remembering them. A few years ago I found out that in order to remember them quickly it's very helpful to have a small cheat sheet that contains all the keyboard shortcuts right in front of my eyes while learning a new tool.
 
-Since this plugin is totally useless without shortcuts I decided to built it in right into the plugin itself! This cheat sheet is just a plugin that embeds raster image containing shortcut reference into your current page.
+Since this plugin is totally useless without shortcuts I decided to built cheat sheet in right into the plugin itself! This cheat sheet is just another plugin that embeds raster image containing shortcut reference into your current page.
 
 ##### In order to see the cheat sheet, just run "Cheatsheet" plugin from the plugins menu:
 
@@ -37,6 +37,8 @@ Since this plugin is totally useless without shortcuts I decided to built it in 
    ![Sketch Duplicator Plugin Cheatsheet](http://turbobabr.github.io/duplicator/images/plugin-cheatsheet.png)
 
 ### Quick Duplicate
+
+How to use:
 
 1. Select one or more layers to duplicate
 2. Duplicate selection:
@@ -50,6 +52,7 @@ Since this plugin is totally useless without shortcuts I decided to built it in 
 This feature gives an ability to quickly duplicate and repeat selected layers by the same distance in a specified direction. This one is ideal for making grids and lists! There is a [built-in feature in Sketch](http://www.sketchtips.info/?tip=29) that does the same thing, but it requires a few extra steps to achieve the same result.
 
 How to use:
+
 1. Select one or more layers you want to duplicate multiple times
 2. Step and repeat selection with custom spacing:
   * ⌘ + ⌃ + ⇧ + `RIGHT arrow key`: repeat right
@@ -62,11 +65,11 @@ How to use:
 
 ## Version history
 
-TODO: Text goes here.
+* 7/9/2014: v1.0.0 - First version!
 
 ## Feedback
 
-TODO: Text goes here.
+If you discover any issue or have any suggestions for improvement of the plugin, please [open an issue](https://github.com/turbobabr/duplicator/issues) or find me on twitter @turbobabr.
 
 ## License
 
