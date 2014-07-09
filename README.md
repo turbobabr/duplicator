@@ -38,7 +38,7 @@ Since this plugin is totally useless without shortcuts I decided to built cheat 
 
 This one is my favourite feature! It allows to create a copy of currently selected layers and automatically places it on an edge of selection bounds + 10 px offset.
 
-*How to use:*
+**How to use:**
 
 1. Select one or more layers to duplicate
 2. Duplicate selection:
@@ -47,13 +47,13 @@ This one is my favourite feature! It allows to create a copy of currently select
   * ⌘ + ⌃ + `UP arrow key`: duplicate above
   * ⌘ + ⌃ + `DOWN arrow key`: duplicate below
 
-*Note:* You can change a default spacing value in `duplicator.js` file. There is a special constant for that `var DEFAULT_SPACING = 10;` at the first line of the file.
+**Note:** You can change a default spacing value in `duplicator.js` file. There is a special constant for that `var DEFAULT_SPACING = 10;` at the first line of the file.
 
 ### Step and Repeat
 
 This feature gives an ability to quickly duplicate and repeat selected layers by the same distance in a specified direction. This one is ideal for making grids and lists! There is a [built-in feature in Sketch](http://www.sketchtips.info/?tip=29) that does the same thing, but it requires a few extra steps to achieve the same result.
 
-*How to use:*
+**How to use:**
 
 1. Select one or more layers you want to duplicate multiple times
 2. Step and repeat selection with custom spacing:
