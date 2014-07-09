@@ -31,7 +31,7 @@ Since this plugin is totally useless without shortcuts I decided to built cheat 
 
 ### Quick Duplicate
 
-This one is my favourite feature! It allows to create a copy of currently selected layers and automatically places it on an edge of selection bounds + 10 px offset.
+This feature allows to create a copy of currently selected layers and automatically places it on an edge of selection bounds + 10 px offset.
 
 **How to use:**
 
