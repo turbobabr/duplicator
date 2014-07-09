@@ -65,11 +65,12 @@ How to use:
 
 ## Version history
 
-* 7/9/2014: v1.0.0 - First version!
+**Duplicator 1.0.0: 7/9/2014**
+– Initial Release
 
 ## Feedback
 
-If you discover any issue or have any suggestions for improvement of the plugin, please [open an issue](https://github.com/turbobabr/duplicator/issues) or find me on twitter @turbobabr.
+If you discover any issue or have any suggestions for improvement of the plugin, please [open an issue](https://github.com/turbobabr/duplicator/issues) or find me on twitter [@turbobabr](http://twitter.com/turbobabr).
 
 ## License
 
