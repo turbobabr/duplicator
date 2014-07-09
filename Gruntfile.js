@@ -5,10 +5,10 @@ module.exports = function(grunt) {
         compress: {
             main: {
                 options: {
-                    archive: 'distr/duplicator.zip',
+                    archive: 'distr/Duplicator.zip',
                     mode: 'zip'
                 },
-                files: [{ expand: true, src : "../duplicator/**/*", cwd : "" }]
+                files: [{ expand: true, src : "../Duplicator/**/*", cwd : "" }]
             }
         }
     });
