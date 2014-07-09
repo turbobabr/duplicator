@@ -1,8 +1,6 @@
 Duplicator
 ===========
 
-(Work in progress....)
-
 A small [Sketch 3](http://bohemiancoding.com/sketch/) plugin that takes the currently selected layers and copies them once or multiple times in a specified direction. A must have tool for any UI/UX designer who uses Sketch on a daily basis! :)
 
 Here is a short screencast that demonstrates all the features of the plugin:
@@ -38,6 +36,8 @@ Since this plugin is totally useless without shortcuts I decided to built cheat 
 
 ### Quick Duplicate
 
+This one is my favourite feature! It allows to create a copy of currently selected layers and automatically places it on an edge of selection bounds + 10 px offset.
+
 How to use:
 
 1. Select one or more layers to duplicate
@@ -46,6 +46,8 @@ How to use:
   * ⌘ + ⌃ + `LEFT arrow key`: duplicate left
   * ⌘ + ⌃ + `UP arrow key`: duplicate above
   * ⌘ + ⌃ + `DOWN arrow key`: duplicate below
+
+Note: You can change default spacing value in `duplicator.js` file. There is a special constant for that `var DEFAULT_SPACING = 10;` at the first line of the file.
 
 ### Step and Repeat
 
@@ -66,7 +68,7 @@ How to use:
 ## Version history
 
 **Duplicator 1.0.0: 7/9/2014**
-– Initial Release
+* Initial Release
 
 ## Feedback
 

@@ -1,4 +1,6 @@
 
+var DEFAULT_SPACING = 10;
+
 
 function isRetinaDisplay() {
     /*
@@ -74,7 +76,7 @@ function duplicate(direction,showOptionsAlert) {
 
     var showOptionsAlert=showOptionsAlert || false;
 
-    var spacing = 10;
+    var spacing = DEFAULT_SPACING;
     var repeats = 1;
 
     if(showOptionsAlert) {
