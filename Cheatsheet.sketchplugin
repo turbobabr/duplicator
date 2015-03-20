@@ -12,9 +12,9 @@ function loadCheatSheetImg() {
 
 function addImgToGroup (group, img, layerName) {
     var imageCollection = group.documentData().images();
-    var imageData = imageCollection.addImage_name_convertColourspace(img, layerName, false);
+    var imageData = imageCollection.addImage_convertColourspace(img, false);
     var newImage = MSBitmapLayer.alloc().initWithImage_parentFrame_name(imageData, group.frame(), layerName);
-    group.addLayer(newImage);
+    group.addLayers([newImage]);
 
     return newImage;
 }
@@ -33,7 +33,7 @@ if(doc.artboards() && doc.artboards().count()>0) {
     var anchorArtboard=doc.artboards().objectAtIndex(doc.artboards().count()-1);
     artboard.frame().setX(anchorArtboard.frame().x()+anchorArtboard.frame().width()+100);
     artboard.frame().setY(anchorArtboard.frame().y());
-    doc.currentPage().addLayer(artboard);
+    doc.currentPage().addLayers([artboard]);
 
     var imageLayer=addImgToGroup(artboard,loadCheatSheetImg(),"Cheatsheet Image");
 
