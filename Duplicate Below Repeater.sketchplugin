@@ -1,3 +1,0 @@
-// Duplicate selected layers below (control shift command ↓)
-#import 'duplicator.js'
-duplicate("below",true);

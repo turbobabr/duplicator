@@ -1,3 +1,0 @@
-// Duplicate selected layers right (control shift command →)
-#import 'duplicator.js'
-duplicate("right",true);

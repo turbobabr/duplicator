@@ -65,6 +65,11 @@ This feature gives an ability to quickly duplicate and repeat selected layers by
 **Duplicator 1.0.0: 7/9/2014**
 * Initial Release
 
+**Duplicator 1.1.0: 5/24/2016**
+* New bundle format support
+* Sketch 3.8+ support
+
+
 ## Feedback
 
 If you discover any issue or have any suggestions for improvement of the plugin, please [open an issue](https://github.com/turbobabr/duplicator/issues) or find me on twitter [@turbobabr](http://twitter.com/turbobabr).
