@@ -9,10 +9,10 @@ Here is a short screencast that demonstrates all the features of the plugin:
 
 ## Installation
 
-1. [Download duplicator.zip archive with the plugin](https://github.com/turbobabr/duplicator/archive/duplicator-v1.1.zip).
-2. Reveal plugins folder in finder ('Sketch App Menu' -> 'Plugins' -> 'Reveal Plugins Folder...').
-3. Copy downloaded zip file to the revealed folder and un-zip it.
-4. That's it! :)
+1. [Download duplicator-v1.1.zip archive with the plugin](https://github.com/turbobabr/duplicator/archive/duplicator-v1.1.zip).
+2. Reveal plugins folder in finder ('Sketch App Menu' -> 'Plugins' -> 'Manage Plugins...' -> 'Gear Icon' -> 'Show Plugins Folder').
+3. Delete previously installed version of the plugin (`duplicator` folder or `Duplicator.sketchplugin` bundle)
+4. Un-zip downloaded archive and double-click `Duplicator.sketchplugin` file inside it.
 
 ## Usage
 
