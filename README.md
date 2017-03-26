@@ -7,6 +7,11 @@ Here is a short screencast that demonstrates all the features of the plugin:
 
 <a href="http://youtu.be/-CoHd9a-wnc" target="_blank"><img src="http://turbobabr.github.io/duplicator/images/play-screencast-image.png" alt="Sketch 3 Duplicator Plugin Screencast"/></a>
 
+## Install with Sketch Runner
+With Sketch Runner, just go to the `install` command and search for `duplicator`. Runner allows you to manage plugins and do much more to speed up your workflow in Sketch. [Download Runner here](http://www.sketchrunner.com).
+
+![Sketch Runner screenshot](https://raw.githubusercontent.com/turbobabr/duplicator/master/docs/runner-installation.png)
+
 ## Manual Installation
 
 1. Download [duplicator-v1.1.zip](https://github.com/turbobabr/duplicator/archive/duplicator-v1.1.zip) archive with the plugin.
