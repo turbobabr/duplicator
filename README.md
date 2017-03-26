@@ -7,7 +7,7 @@ Here is a short screencast that demonstrates all the features of the plugin:
 
 <a href="http://youtu.be/-CoHd9a-wnc" target="_blank"><img src="http://turbobabr.github.io/duplicator/images/play-screencast-image.png" alt="Sketch 3 Duplicator Plugin Screencast"/></a>
 
-## Installation
+## Manual Installation
 
 1. Download [duplicator-v1.1.zip](https://github.com/turbobabr/duplicator/archive/duplicator-v1.1.zip) archive with the plugin.
 2. Reveal plugins folder in finder ('Sketch App Menu' -> 'Plugins' -> 'Manage Plugins...' -> 'Gear Icon' -> 'Show Plugins Folder').
