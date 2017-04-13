@@ -6,17 +6,6 @@ function isRetinaDisplay() {
   return NSScreen.isOnRetinaScreen();
 }
 
-function actionWithType(type,context) {
-  var doc = context.document;
-
-  var controller = doc.actionsController();
-  if(controller.actionWithName) {
-    return controller.actionWithName(type);
-  } else if(controller.actionWithID) {
-    return controller.actionWithID(type);
-  }
-}
-
 function createAlert(direction,context) {
   var alert = COSAlertWindow.new();
 
@@ -109,15 +98,12 @@ function duplicate(direction,showOptionsAlert,context) {
 
   for(var n=0;n<repeats;n++) {
 
-    var action = actionWithType("MSCanvasActions",context);
-    action.duplicate(null);
-
     var sel=doc.findSelectedLayers();
 
     var size=getSelectionSize(sel);
 
     for(var i=0;i<sel.count();i++) {
-      var layer=sel.objectAtIndex(i);
+      var layer=sel.objectAtIndex(i).duplicate();
 
       if(direction=="above") {
         layerOffset(layer,0,-(size.h+spacing));
