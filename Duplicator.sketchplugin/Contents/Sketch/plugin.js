@@ -1,7 +1,6 @@
 
 var DEFAULT_SPACING = 10;
 
-
 function isRetinaDisplay() {
   return NSScreen.isOnRetinaScreen();
 }
@@ -43,7 +42,6 @@ function createAlert(direction,context) {
 
   return alert;
 }
-
 
 function duplicate(direction,showOptionsAlert,context) {
 
@@ -99,11 +97,14 @@ function duplicate(direction,showOptionsAlert,context) {
   for(var n=0;n<repeats;n++) {
 
     var sel=doc.findSelectedLayers();
+    //Deselect all layers in preparation to build new selection for duplication
+    context.document.documentData().deselectAllLayers();
 
     var size=getSelectionSize(sel);
 
     for(var i=0;i<sel.count();i++) {
       var layer=sel.objectAtIndex(i).duplicate();
+      layer.select_byExpandingSelection(true, true); //Add layer to the selection
 
       if(direction=="above") {
         layerOffset(layer,0,-(size.h+spacing));
