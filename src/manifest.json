@@ -1,0 +1,45 @@
+{
+	"name" : "Duplicator",
+	"identifier" : "com.turbobabr.sketch.duplicator",
+	"version" : "2.0.0",
+	"description" : "A handy plugin for duplicating selected layers or artboards in a specified direction.",
+	"author" : "Andrey Shakhmin",
+	"homepage": "https://github.com/turbobabr/duplicator",
+	"compatibleVersion": 3,
+	"bundleVersion": 1,
+	"commands": [
+		{
+			"name": "Duplicate Left",
+			"identifier": "duplicateLeft",
+			"shortcut": "control command ←",
+			"script": "./plugin.js"
+		},
+		{
+			"name": "Duplicate Right",
+			"identifier": "duplicateRight",
+			"shortcut": "control command →",
+			"script": "./plugin.js"
+		},
+		{
+			"name": "Duplicate Above",
+			"identifier": "duplicateAbove",
+			"shortcut": "control command ↑",
+			"script": "./plugin.js"
+		},
+		{
+			"name": "Duplicate Below",
+			"identifier": "duplicateBelow",
+			"shortcut": "control command ↓",
+			"script": "./plugin.js"
+		}
+	],
+	"menu": {
+		"title": "Duplicator",
+		"items": [
+			"duplicateLeft",
+			"duplicateRight",
+			"duplicateAbove",
+			"duplicateBelow"
+		]
+	}
+}

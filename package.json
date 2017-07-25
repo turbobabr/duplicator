@@ -1,0 +1,34 @@
+{
+  "name": "duplicator",
+  "version": "2.0.0",
+  "description": "A handy Sketch plugin for duplicating selected layers or artboards in a specified direction.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "skpm build",
+    "publish": "skpm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/turbobabr/duplicator.git"
+  },
+  "author": "Andrey Shakhmin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/turbobabr/duplicator/issues"
+  },
+  "homepage": "https://github.com/turbobabr/duplicator#readme",
+  "engines": {
+    "sketch": ">=3.0"
+  },
+  "devDependencies": {
+    "skpm": "^0.10.3"
+  },
+  "skpm": {
+    "manifest": "src/manifest.json",
+    "main": "plugin.sketchplugin"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
