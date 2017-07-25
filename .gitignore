@@ -1,3 +1,14 @@
+# build artefacts
+plugin.sketchplugin/Contents/Sketch
+plugin.sketchplugin/Contents/Resources/_webpack_images
+
+# npm
+node_modules
+.npm
+npm-debug.log
+
+# mac
+.DS_Store
+
+# IDE
 .idea
-.DB_Store
-*.log
