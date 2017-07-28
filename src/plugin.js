@@ -6,30 +6,30 @@ import {
 
 import Utils from './utils';
 
-import duplicate from './duplicate';
-import showPreferences from './preferences';
+import { duplicateOnce, duplicateWithRepeater } from './duplicate';
+import { showSettingsEditor } from './settings';
 
 export default function (context) {
 
   switch(Utils.normalize(context.command.identifier())) {
     case Commands.Left:
-      duplicate(context.selection,{ direction: Direction.Left });
+      duplicateOnce(context.selection, Direction.Left);
       break;
 
     case Commands.Right:
-      duplicate(context.selection,{ direction: Direction.Right });
+      duplicateOnce(context.selection, Direction.Right);
       break;
 
     case Commands.Above:
-      duplicate(context.selection,{ direction: Direction.Above });
+      duplicateOnce(context.selection,Direction.Above);
       break;
 
     case Commands.Below:
-      duplicate(context.selection,{ direction: Direction.Below });
+      duplicateOnce(context.selection,Direction.Below);
       break;
 
     case Commands.Preferences:
-      showPreferences();
+      showSettingsEditor();
       break;
   }
 }

@@ -5,6 +5,12 @@ export const Commands = {
   Right: 'duplicateRight',
   Above: 'duplicateAbove',
   Below: 'duplicateBelow',
+
+  LeftRepeater: 'duplicateLeftRepeater',
+  RightRepeater: 'duplicateRightRepeater',
+  AboveRepeater: 'duplicateAboveRepeater',
+  BelowRepeater: 'duplicateBelowRepeater',
+
   Preferences: 'preferences'
 };
 

@@ -4,12 +4,11 @@ import Storage from './thread-storage';
 import {
   PREVIOUS_STENCIL_DESCRIPTOR_KEY,
   PRESERVED_OFFSETS_KEY,
-  DEFAULTS_STORAGE_KEY,
   Direction,
   InjectionMode
 } from './constants';
 
-import { showAlert } from './ui';
+import { defaultSettings } from './settings';
 
 const arrayFastEach = (array,iteratee) => {
   iteratee = iteratee || function() {};
@@ -122,53 +121,14 @@ const compareClustersDescriptors = (clustersA,clustersB) => {
 };
 
 
-const loadDefaultSettings = () => {
-  let str = NSUserDefaults.standardUserDefaults().stringForKey(DEFAULTS_STORAGE_KEY);
-  if(!str) {
-    return {
-    };
-  }
 
-  let options = {};
-
-  try {
-    options = JSON.parse(str);
-  } catch(err) {
-    print("[duplicator]: Error - Can't load default settings!");
-  }
-
-  return options;
-};
-
-const saveDefaultSettings = (options) => {
-  options = options || {};
-
-  let str = JSON.stringify(options);
-
-  let userDefaults = NSUserDefaults.standardUserDefaults();
-  userDefaults.setObject_forKey(str,DEFAULTS_STORAGE_KEY);
-  userDefaults.synchronize();
-};
-
-
-const defaults = (options) => {
-  options = options || {};
-
-  let defaultOptions = {
-    defaultOffset: 10,
-    defaultArtboardOffset: 30,
-    injectionMode: InjectionMode.AfterSelection
-  };
-
-  return _.assign(defaultOptions,loadDefaultSettings(),options);
-};
 
 const duplicate = (layers,options,count) => {
   if(!layers || layers.count()<1) {
     return;
   }
 
-  options = defaults(options);
+  options = defaultSettings(options);
 
   const { direction, defaultOffset, defaultArtboardOffset, injectionMode } = options;
   let clusters = groupLayersByParentGroup(layers);
@@ -300,4 +260,10 @@ const duplicate = (layers,options,count) => {
   Storage.set(PRESERVED_OFFSETS_KEY,NSDictionary.dictionaryWithDictionary(offsetDeltasForClusters));
 };
 
-export default duplicate;
+export const duplicateOnce = (layers,direction) => {
+  MSDocument.currentDocument().showMessage(`once: ${direction}`);
+};
+
+export const duplicateWithRepeater = (layers,direction) => {
+  MSDocument.currentDocument().showMessage(`multiple: ${direction}`);
+};
