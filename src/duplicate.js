@@ -163,11 +163,7 @@ const defaults = (options) => {
   return _.assign(defaultOptions,loadDefaultSettings(),options);
 };
 
-export const showSettingsDialog = () => {
-  showAlert();
-};
-
-export const duplicate = (layers,options,count) => {
+const duplicate = (layers,options,count) => {
   if(!layers || layers.count()<1) {
     return;
   }
@@ -303,3 +299,5 @@ export const duplicate = (layers,options,count) => {
   Storage.set(PREVIOUS_STENCIL_DESCRIPTOR_KEY,stencilDescriptor);
   Storage.set(PRESERVED_OFFSETS_KEY,NSDictionary.dictionaryWithDictionary(offsetDeltasForClusters));
 };
+
+export default duplicate;

@@ -6,7 +6,7 @@ import {
 
 import Utils from './utils';
 
-import { duplicate } from './duplicate';
+import duplicate from './duplicate';
 
 export default function (context) {
 
