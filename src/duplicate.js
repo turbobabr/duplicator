@@ -9,6 +9,9 @@ import {
 } from './constants';
 
 import { defaultSettings } from './settings';
+import PropEditorDialog, { PropType, PropEditorType } from './prop-editor';
+
+import Utils from './utils';
 
 const arrayFastEach = (array,iteratee) => {
   iteratee = iteratee || function() {};
@@ -123,7 +126,7 @@ const compareClustersDescriptors = (clustersA,clustersB) => {
 
 
 
-const duplicate = (layers,options,count) => {
+const duplicate = (layers,options) => {
   if(!layers || layers.count()<1) {
     return;
   }
@@ -258,12 +261,150 @@ const duplicate = (layers,options,count) => {
   let stencilDescriptor = makeClustersDescriptor(groupLayersByParentGroup(NSArray.arrayWithArray(allDuplicates)),direction);
   Storage.set(PREVIOUS_STENCIL_DESCRIPTOR_KEY,stencilDescriptor);
   Storage.set(PRESERVED_OFFSETS_KEY,NSDictionary.dictionaryWithDictionary(offsetDeltasForClusters));
+
+  return allDuplicates;
 };
 
 export const duplicateOnce = (layers,direction) => {
-  MSDocument.currentDocument().showMessage(`once: ${direction}`);
+  duplicate(layers,{ direction: direction });
+};
+
+
+const buildRepeaterDialogConfiguration = (direction) => {
+
+  switch(direction) {
+    case Direction.Left:
+      return {
+        title: 'Repeat Left',
+        description: 'This tool takes the current selection and copies it a specified number of times to the left',
+        icon: 'ic-duplicate-left.png',
+      };
+      break;
+
+    case Direction.Right:
+      return {
+        title: 'Repeat Right',
+        description: 'This tool takes the current selection and copies it a specified number of times to the right',
+        icon: 'ic-duplicate-right.png',
+      };
+      break;
+
+    case Direction.Above:
+      return {
+        title: 'Repeat Above',
+        description: 'This tool takes the current selection and copies it a specified number of times above the selection',
+        icon: 'ic-duplicate-above.png',
+      };
+      break;
+
+    case Direction.Below:
+      return {
+        title: 'Repeat Below',
+        description: 'This tool takes the current selection and copies it a specified number of times below the selection',
+        icon: 'ic-duplicate-below.png',
+      };
+      break;
+
+  }
+
+  return {};
+};
+
+const findSelectedLayers = (document) => {
+  document = document || MSDocument.currentDocument();
+  return document.selectedLayers().layers();
+};
+
+const Containment = {
+  Empty: 'empty',
+  ArtboardsOnly: 'artboardsOnly',
+  CommonLayers: 'layers',
+  Mixed: 'mixed'
+};
+
+const testContainment = (layers) => {
+  if(!layers || layers.count() <1 ) {
+    return Containment.Empty;
+  }
+
+  const artboards = layers.filteredArrayUsingPredicate(NSPredicate.predicateWithFormat("className == 'MSArtboardGroup' || className == 'MSSymbolMaster'"));
+  if(layers.count() == artboards.count()) {
+    return Containment.ArtboardsOnly;
+  }
+
+  if(artboards.count() > 0 && layers.count() != artboards.count()) {
+    return Containment.Mixed;
+  }
+
+  return Containment.CommonLayers;
 };
 
 export const duplicateWithRepeater = (layers,direction) => {
-  MSDocument.currentDocument().showMessage(`multiple: ${direction}`);
+  const options = defaultSettings({});
+  let offset = 0;
+
+  switch(testContainment(layers)) {
+    case Containment.Empty:
+      MSDocument.currentDocument().showMessage('[Duplicator]: Selection is empty!');
+      return;
+      break;
+
+    case Containment.ArtboardsOnly:
+      offset = options.defaultArtboardOffset;
+      break;
+
+    case Containment.Mixed:
+    case Containment.CommonLayers:
+      offset = options.defaultOffset;
+      break;
+  }
+
+  const editor = new PropEditorDialog(_.assign(
+    buildRepeaterDialogConfiguration(direction),{
+    props: [
+      {
+        name: 'count',
+        type: PropType.Number,
+        editorType: PropEditorType.TextField,
+        label: 'Count:',
+        value: 1
+      },
+      {
+        name: 'offset',
+        type: PropType.Number,
+        editorType: PropEditorType.TextField,
+        label: 'Spacing (pixels):',
+        value: offset
+      }
+    ],
+    buttons: [
+      {
+        title: "Duplicate",
+        id: "ok"
+      },
+      {
+        title: "Cancel",
+        id: "cancel"
+      }
+    ]
+  }));
+
+  editor.show((response,props) => {
+    if(response != 'ok') {
+      return;
+    }
+
+    let selection = [];
+    _.times(props.count,() => {
+      selection = selection.concat(duplicate(findSelectedLayers(),{
+        direction: direction,
+        defaultOffset: props.offset,
+        defaultArtboardOffset: props.offset,
+      }));
+    });
+
+    arrayFastEach(selection,(layer) => {
+      layer.select_byExtendingSelection(true,true);
+    });
+  });
 };

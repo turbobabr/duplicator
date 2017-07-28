@@ -11,7 +11,7 @@ export const Commands = {
   AboveRepeater: 'duplicateAboveRepeater',
   BelowRepeater: 'duplicateBelowRepeater',
 
-  Preferences: 'preferences'
+  Settings: 'settings'
 };
 
 export const Direction = {
