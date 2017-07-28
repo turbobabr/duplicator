@@ -28,6 +28,11 @@
 			"identifier": "duplicateBelow",
 			"shortcut": "control command ↓",
 			"script": "./plugin.js"
+		},
+		{
+			"name": "Preferences",
+			"identifier": "preferences",
+			"script": "./plugin.js"
 		}
 	],
 	"menu": {
@@ -36,7 +41,9 @@
 			"duplicateLeft",
 			"duplicateRight",
 			"duplicateAbove",
-			"duplicateBelow"
+			"duplicateBelow",
+			"-",
+			"preferences"
 		]
 	}
 }

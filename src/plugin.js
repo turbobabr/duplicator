@@ -7,6 +7,7 @@ import {
 import Utils from './utils';
 
 import duplicate from './duplicate';
+import showPreferences from './preferences';
 
 export default function (context) {
 
@@ -25,6 +26,10 @@ export default function (context) {
 
     case Commands.Below:
       duplicate(context.selection,{ direction: Direction.Below });
+      break;
+
+    case Commands.Preferences:
+      showPreferences();
       break;
   }
 }

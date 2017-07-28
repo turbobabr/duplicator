@@ -5,6 +5,7 @@ export const Commands = {
   Right: 'duplicateRight',
   Above: 'duplicateAbove',
   Below: 'duplicateBelow',
+  Preferences: 'preferences'
 };
 
 export const Direction = {
