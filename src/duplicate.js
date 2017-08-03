@@ -11,8 +11,6 @@ import {
 import { defaultSettings } from './settings';
 import PropEditorDialog, { PropType, PropEditorType } from './prop-editor';
 
-import Utils from './utils';
-
 const arrayFastEach = (array,iteratee) => {
   iteratee = iteratee || function() {};
 
@@ -186,7 +184,7 @@ const duplicate = (layers,options) => {
 
         offsetDeltasForClusters[key] = offsetDelta;
       } else {
-        // TODO: Should discard previous saved stencil here!
+        Storage.remove(PREVIOUS_STENCIL_DESCRIPTOR_KEY);
       }
     }
 

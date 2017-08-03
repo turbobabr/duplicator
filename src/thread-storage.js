@@ -11,6 +11,9 @@ const Storage = {
   },
   exists(key) {
     return this.get(key) ? true : false;
+  },
+  remove(key) {
+    this._storage().removeObjectForKey(key);
   }
 };
 
