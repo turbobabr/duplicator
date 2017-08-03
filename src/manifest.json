@@ -30,25 +30,25 @@
 			"script": "./plugin.js"
 		},
 		{
-			"name" : "Duplicate Left Repeater",
+			"name" : "Repeat Left",
 			"identifier" : "duplicateLeftRepeater",
 			"shortcut" : "control shift command ←",
 			"script": "./plugin.js"
 		},
 		{
-			"name" : "Duplicate Right Repeater",
+			"name" : "Repeat Right",
 			"identifier" : "duplicateRightRepeater",
 			"shortcut" : "control shift command →",
 			"script": "./plugin.js"
 		},
 		{
-			"name" : "Duplicate Above Repeater",
+			"name" : "Repeat Above",
 			"identifier" : "duplicateAboveRepeater",
 			"shortcut" : "control shift command ↑",
 			"script": "./plugin.js"
 		},
 		{
-			"name" : "Duplicate Below Repeater",
+			"name" : "Repeat Below",
 			"identifier" : "duplicateBelowRepeater",
 			"shortcut" : "control shift command ↓",
 			"script": "./plugin.js"
