@@ -19,17 +19,25 @@ With Sketch Runner, just go to the `install` command and search for `duplicator`
 
 ### Duplicating layers
 
+Select any layer and use `command-control + any arrow key` to duplicate it in a corresponding to the arrow key direction. Duplicated layer gets automatically selected, thus it's easy to create several duplicates of the same layer by repeating the command. By default plugin uses `10px` offset for regular layers. Offset could be adjusted in the `Settings` dialog:
+
 ![Hero](docs/duplicating-layers.gif?raw=true "Logo")
 
 ### Duplicating multiple layers at once
+
+It's possible to select several layers that belong to different groups or artboards and duplicate them at once. It's especially useful for grids generation:
 
 ![Hero](docs/duplicating-multiple-layers-at-once.gif?raw=true "Logo")
 
 ### Duplicating artboards and symbols
 
+All layer type are supported.. this means that we can duplicate artboards and symbols! By default `100px` offset is used for spacing between duplicated artboards, but it could be adjusted in the `Settings` dialog:
+
 ![Hero](docs/duplicating-artboards-and-symbols.gif?raw=true "Logo")
 
-### Remembering custom offsets
+### Adjusting offsets between duplicates
+
+Create a first duplicate of a selected layer(s) using `command-control + arrow` shortcut and adjust vertical or horizontal spacing between original layer(s) and duplicate, then repeat in the same direction until you have the desired duplicates. This feature works for any types of layers, including artboards and symbols:
 
 ![Hero](docs/remebering-offsets.gif?raw=true "Logo")
 
