@@ -46,7 +46,7 @@ export const showSettingsEditor = () => {
 
   let editor = new PropEditorDialog({
     title: 'Duplicator Settings',
-    description: 'This is a long informative text that describes all the available options:',
+    description: '`Offset` is a default offset for all types of layers but artboards and symbols. Use `Artboards Offset` field to adjust default spacing for artboards and symbols instead.\n\n`Injection Mode` option controls where in the layer list duplicated layers will be injected.',
     icon: 'ic-logo.png',
     props: [
       {
