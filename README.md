@@ -1,6 +1,8 @@
 Duplicator
 ===========
 
+![Hero](docs/hero-logo.png?raw=true "Logo")
+
 A small [Sketch 3](http://bohemiancoding.com/sketch/) plugin that takes the currently selected layers and copies them once or multiple times in a specified direction. A must have tool for any UI/UX designer who uses Sketch on a daily basis! :)
 
 Here is a short screencast that demonstrates all the features of the plugin:
@@ -55,8 +57,8 @@ This feature gives an ability to quickly duplicate and repeat selected layers by
 
 **How to use:**
 
-1. Select one or more layers you want to duplicate multiple times
-2. Step and repeat selection with custom spacing:
+1. Select one or more layers or artboards you want to duplicate multiple times
+2. Repeat selection with custom spacing:
   * ⌘ + ⌃ + ⇧ + `RIGHT arrow key`: repeat right
   * ⌘ + ⌃ + ⇧ + `LEFT arrow key`: repeat left
   * ⌘ + ⌃ + ⇧ + `UP arrow key`: repeat above
