@@ -1,13 +1,7 @@
-Duplicator
+![Hero](docs/hero-logo.png?raw=true "Logo")
 ===========
 
-![Hero](docs/hero-logo.png?raw=true "Logo")
-
 A small [Sketch 3](http://bohemiancoding.com/sketch/) plugin that takes the currently selected layers and copies them once or multiple times in a specified direction. A must have tool for any UI/UX designer who uses Sketch on a daily basis! :)
-
-Here is a short screencast that demonstrates all the features of the plugin:
-
-<a href="http://youtu.be/-CoHd9a-wnc" target="_blank"><img src="http://turbobabr.github.io/duplicator/images/play-screencast-image.png" alt="Sketch 3 Duplicator Plugin Screencast"/></a>
 
 ## Install with Sketch Runner
 With Sketch Runner, just go to the `install` command and search for `duplicator`. Runner allows you to manage plugins and do much more to speed up your workflow in Sketch. [Download Runner here](http://www.sketchrunner.com).
@@ -38,50 +32,6 @@ With Sketch Runner, just go to the `install` command and search for `duplicator`
 ### Remembering custom offsets
 
 ![Hero](docs/remebering-offsets.gif?raw=true "Logo")
-
-### Instant Cheatsheet
-I prefer to use keyboard shortcuts whenever possible, but I'm really bad at remembering them. A few years ago I found out that in order to remember them quickly it's very helpful to have a small cheat sheet that contains all the keyboard shortcuts right in front of my eyes while learning a new tool.
-
-Since this plugin is totally useless without shortcuts I decided to built cheat sheet in right into the plugin itself! This cheat sheet is just another plugin that embeds raster image containing shortcut reference into your current page.
-
-##### In order to see the cheat sheet, just run "Cheatsheet" plugin from the plugins menu:
-
-   ![Paste Cheatsheet](http://turbobabr.github.io/duplicator/images/paste-cheatsheet.png)
-
-##### It will automatically embed the cheat sheet into your current page as a new artboard:
-
-   ![Sketch Duplicator Plugin Cheatsheet](http://turbobabr.github.io/duplicator/images/plugin-cheatsheet.png)
-
-### Quick Duplicate
-
-This feature allows to create a copy of currently selected layers and automatically places it on an edge of selection bounds + 10 px offset.
-
-**How to use:**
-
-1. Select one or more layers to duplicate
-2. Duplicate selection:
-  * ⌘ + ⌃ + `RIGHT arrow key`: duplicate right
-  * ⌘ + ⌃ + `LEFT arrow key`: duplicate left
-  * ⌘ + ⌃ + `UP arrow key`: duplicate above
-  * ⌘ + ⌃ + `DOWN arrow key`: duplicate below
-
-**Note:** You can change a default spacing value in `duplicator.js` file. There is a special constant for that `var DEFAULT_SPACING = 10;` at the first line of the file.
-
-### Step and Repeat
-
-This feature gives an ability to quickly duplicate and repeat selected layers by the same distance in a specified direction. This one is ideal for making grids and lists! There is a [built-in feature in Sketch](http://www.sketchtips.info/?tip=29) that does the same thing, but it requires a few extra steps to achieve the same result.
-
-**How to use:**
-
-1. Select one or more layers or artboards you want to duplicate multiple times
-2. Repeat selection with custom spacing:
-  * ⌘ + ⌃ + ⇧ + `RIGHT arrow key`: repeat right
-  * ⌘ + ⌃ + ⇧ + `LEFT arrow key`: repeat left
-  * ⌘ + ⌃ + ⇧ + `UP arrow key`: repeat above
-  * ⌘ + ⌃ + ⇧ + `DOWN arrow key`: repeat below
-3. Specify number of copies and distance between them in the popup dialog:
-   ![Step and Repeat Dialog](http://turbobabr.github.io/duplicator/images/step-and-repeat-dialog.png)
-
 
 ## Version history
 
