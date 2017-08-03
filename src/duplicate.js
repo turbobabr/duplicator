@@ -121,9 +121,6 @@ const compareClustersDescriptors = (clustersA,clustersB) => {
   return true;
 };
 
-
-
-
 const duplicate = (layers,options) => {
   if(!layers || layers.count()<1) {
     return;
@@ -214,7 +211,7 @@ const duplicate = (layers,options) => {
     let newBounds = MSLayerGroup.groupBoundsForContainer(MSLayerArray.arrayWithLayers(duplicates));
     arrayFastEach(duplicates,(layer) => {
 
-      const offset = (layer.isKindOfClass(MSArtboardGroup) ? defaultArtboardOffset : defaultOffset) + offsetDelta;
+      const offset = (layer.isKindOfClass(MSArtboardGroup) ? defaultArtboardOffset : defaultOffset) + (!options.ignoreOffsetDelta ? offsetDelta : 0);
 
       switch(direction) {
         case Direction.Left:
@@ -337,6 +334,75 @@ const testContainment = (layers) => {
   return Containment.CommonLayers;
 };
 
+const gatherClustersInfo = (layers,options) => {
+  if(!layers || layers.count()<1) {
+    return;
+  }
+
+  options = defaultSettings(options);
+
+  const { direction } = options;
+  let clusters = groupLayersByParentGroup(layers);
+
+  let currentStencilDescriptor = makeClustersDescriptor(clusters,direction);
+
+  let prevStencilDescriptor = null;
+  if(Storage.exists(PREVIOUS_STENCIL_DESCRIPTOR_KEY)) {
+    prevStencilDescriptor = Storage.get(PREVIOUS_STENCIL_DESCRIPTOR_KEY);
+  }
+
+  let keys = clusters.allKeys();
+
+  let offsetDeltasForClusters = {};
+  let prevOffsetDeltasForClusters = Storage.get(PRESERVED_OFFSETS_KEY);
+
+  let offsetDelta = 0;
+  arrayFastEach(keys,(key) => {
+    let cluster = clusters[key];
+    let originalBounds = MSLayerGroup.groupBoundsForContainer(MSLayerArray.arrayWithLayers(cluster))
+
+
+    if(prevStencilDescriptor) {
+      if (compareClustersDescriptors(currentStencilDescriptor, prevStencilDescriptor)) {
+        offsetDelta = originalBounds.origin.y - prevStencilDescriptor.bounds[key].y;
+
+        switch (direction) {
+          case Direction.Below:
+            offsetDelta = originalBounds.origin.y - prevStencilDescriptor.bounds[key].y;
+            break;
+
+          case Direction.Right:
+            offsetDelta = originalBounds.origin.x - prevStencilDescriptor.bounds[key].x;
+            break;
+
+          case Direction.Left:
+            offsetDelta = (prevStencilDescriptor.bounds[key].x + prevStencilDescriptor.bounds[key].width) - (originalBounds.origin.x + originalBounds.size.width);
+            break;
+
+          case Direction.Above:
+            offsetDelta = (prevStencilDescriptor.bounds[key].y + prevStencilDescriptor.bounds[key].height) - (originalBounds.origin.y + originalBounds.size.height);
+            break;
+        }
+
+        if (prevOffsetDeltasForClusters && !_.isUndefined(prevOffsetDeltasForClusters[key]) && prevOffsetDeltasForClusters[key]) {
+          if (offsetDelta == 0) {
+            offsetDelta = prevOffsetDeltasForClusters[key];
+          } else {
+            offsetDelta = prevOffsetDeltasForClusters[key] + offsetDelta;
+          }
+        }
+
+        offsetDeltasForClusters[key] = offsetDelta;
+      }
+    }
+  });
+
+  return {
+    clusters,
+    offsetDeltasForClusters
+  };
+};
+
 export const duplicateWithRepeater = (layers,direction) => {
   const options = defaultSettings({});
   let offset = 0;
@@ -355,6 +421,16 @@ export const duplicateWithRepeater = (layers,direction) => {
     case Containment.CommonLayers:
       offset = options.defaultOffset;
       break;
+  }
+
+  const clustersInfo = gatherClustersInfo(layers, { direction });
+  if(clustersInfo && _.keys(clustersInfo.offsetDeltasForClusters).length > 0) {
+    let referenceOffset = _.get(clustersInfo.offsetDeltasForClusters,_.first(_.keys(clustersInfo.offsetDeltasForClusters)));
+    if(_.every(_.keys(clustersInfo.offsetDeltasForClusters),(key) => {
+      return _.get(clustersInfo.offsetDeltasForClusters,key) == referenceOffset;
+      })) {
+      offset += referenceOffset;
+    }
   }
 
   const editor = new PropEditorDialog(_.assign(
@@ -419,7 +495,8 @@ export const duplicateWithRepeater = (layers,direction) => {
         direction: direction,
         defaultOffset: props.offset,
         defaultArtboardOffset: props.offset,
-        injectionMode: props.injectionMode
+        injectionMode: props.injectionMode,
+        ignoreOffsetDelta: true
       }));
     });
 

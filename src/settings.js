@@ -36,7 +36,7 @@ export const defaultSettings = (options = {}) => {
     defaultOffset: 10,
     defaultArtboardOffset: 100,
     injectionMode: InjectionMode.AfterSelection
-  },loadDefaultSettings(),options);
+  },loadDefaultSettings(),{ ignoreOffsetDelta: false },options);
 };
 
 
