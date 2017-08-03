@@ -375,6 +375,27 @@ export const duplicateWithRepeater = (layers,direction) => {
         editorType: PropEditorType.TextField,
         label: 'Spacing (pixels):',
         value: offset
+      },
+      {
+        name: 'injectionMode',
+        type: PropType.List,
+        list: [
+          {
+            name: InjectionMode.Default,
+            label: 'In Place'
+          },
+          {
+            name: InjectionMode.BeforeSelection,
+            label: 'Before Selection'
+          },
+          {
+            name: InjectionMode.AfterSelection,
+            label: 'After Selection'
+          }
+        ],
+        editorType: PropEditorType.PopupButton,
+        label: 'Injection Mode:',
+        value: options.injectionMode
       }
     ],
     buttons: [
@@ -400,6 +421,7 @@ export const duplicateWithRepeater = (layers,direction) => {
         direction: direction,
         defaultOffset: props.offset,
         defaultArtboardOffset: props.offset,
+        injectionMode: props.injectionMode
       }));
     });
 
