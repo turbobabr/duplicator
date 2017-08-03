@@ -1,6 +1,6 @@
 # build artefacts
 plugin.sketchplugin
-duplicator.sketchplugin
+Duplicator.sketchplugin.zip
 
 # npm
 node_modules

@@ -1,0 +1,83 @@
+{
+  "name": "Duplicator",
+  "identifier": "com.turbobabr.sketch.duplicator",
+  "author": "Andrey Shakhmin",
+  "compatibleVersion": 3,
+  "bundleVersion": 1,
+  "commands": [
+    {
+      "name": "Duplicate Left",
+      "identifier": "duplicateLeft",
+      "shortcut": "control command ←",
+      "script": "plugin.js"
+    },
+    {
+      "name": "Duplicate Right",
+      "identifier": "duplicateRight",
+      "shortcut": "control command →",
+      "script": "plugin.js"
+    },
+    {
+      "name": "Duplicate Above",
+      "identifier": "duplicateAbove",
+      "shortcut": "control command ↑",
+      "script": "plugin.js"
+    },
+    {
+      "name": "Duplicate Below",
+      "identifier": "duplicateBelow",
+      "shortcut": "control command ↓",
+      "script": "plugin.js"
+    },
+    {
+      "name": "Repeat Left",
+      "identifier": "duplicateLeftRepeater",
+      "shortcut": "control shift command ←",
+      "script": "plugin.js"
+    },
+    {
+      "name": "Repeat Right",
+      "identifier": "duplicateRightRepeater",
+      "shortcut": "control shift command →",
+      "script": "plugin.js"
+    },
+    {
+      "name": "Repeat Above",
+      "identifier": "duplicateAboveRepeater",
+      "shortcut": "control shift command ↑",
+      "script": "plugin.js"
+    },
+    {
+      "name": "Repeat Below",
+      "identifier": "duplicateBelowRepeater",
+      "shortcut": "control shift command ↓",
+      "script": "plugin.js"
+    },
+    {
+      "name": "Settings...",
+      "identifier": "settings",
+      "script": "plugin.js"
+    }
+  ],
+  "menu": {
+    "title": "Duplicator",
+    "items": [
+      "duplicateLeft",
+      "duplicateRight",
+      "duplicateAbove",
+      "duplicateBelow",
+      "-",
+      "duplicateLeftRepeater",
+      "duplicateRightRepeater",
+      "duplicateAboveRepeater",
+      "duplicateBelowRepeater",
+      "-",
+      "settings"
+    ]
+  },
+  "version": "2.0.0",
+  "description": "A handy Sketch plugin for duplicating selected layers or artboards in a specified direction.",
+  "homepage": "https://github.com/turbobabr/duplicator#readme",
+  "disableCocoaScriptPreprocessor": true,
+  "appcast": "https://raw.githubusercontent.com/turbobabr/duplicator/master/appcast.xml"
+}
