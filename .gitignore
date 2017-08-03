@@ -1,6 +1,6 @@
 # build artefacts
-plugin.sketchplugin/Contents/Sketch
-plugin.sketchplugin/Contents/Resources/_webpack_images
+plugin.sketchplugin
+duplicator.sketchplugin
 
 # npm
 node_modules

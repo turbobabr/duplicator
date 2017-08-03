@@ -44,15 +44,18 @@ Create a first duplicate of a selected layer(s) using `command-control + arrow` 
 ### Duplicating layers a given number of times with custom offset
 
 In case you want to create a certain number of copies in a specified direction with specific offset between copies, you could use `command-control-shift + any arrow key` shortcuts to provide the required values and pick specific injection mode:
+
 ![Repeating](docs/repeaters-custom-offsets.gif?raw=true)
 
 It's also possible to adjust offsets between duplicates in context by creating duplicate once using `command control + arrow` shortcut and adjusting vertical or horizontal spacing, then you could use `command-control-shift + the same arrow key` to create multiple copies at once. In such case offset will be picked up automatically:
+
 ![Manually adjusting offsets between duplicates](docs/repeaters-adjusted-offsets.gif?raw=true)
 
 
 ### Changing default settings
 
-Default settings could be changed in special dialog by selecting `Sketch Menu > Plugins > Duplication > Settings...` menu item:
+Default settings could be changed in special dialog by selecting `Sketch Menu > Plugins > Duplication > Settings` menu item:
+
 ![Settings Dialog](docs/settings-dialog.png?raw=true)
 
 ## Version history
