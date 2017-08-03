@@ -1,11 +1,7 @@
-Duplicator
+![Hero](docs/hero-logo.png?raw=true "Logo")
 ===========
 
-A small [Sketch 3](http://bohemiancoding.com/sketch/) plugin that takes the currently selected layers and copies them once or multiple times in a specified direction. A must have tool for any UI/UX designer who uses Sketch on a daily basis! :)
-
-Here is a short screencast that demonstrates all the features of the plugin:
-
-<a href="http://youtu.be/-CoHd9a-wnc" target="_blank"><img src="http://turbobabr.github.io/duplicator/images/play-screencast-image.png" alt="Sketch 3 Duplicator Plugin Screencast"/></a>
+Duplicator is a handy [SketchApp](http://bohemiancoding.com/sketch/) plugin that takes currently selected layers or artboards and copies them once or multiple times in a specified direction.
 
 ## Install with Sketch Runner
 With Sketch Runner, just go to the `install` command and search for `duplicator`. Runner allows you to manage plugins and do much more to speed up your workflow in Sketch. [Download Runner here](http://www.sketchrunner.com).
@@ -14,76 +10,78 @@ With Sketch Runner, just go to the `install` command and search for `duplicator`
 
 ## Manual Installation
 
-1. Download [duplicator-v1.1.zip](https://github.com/turbobabr/duplicator/archive/duplicator-v1.1.zip) archive with the plugin.
+1. Download [Duplicator.sketchplugin.zip](https://github.com/turbobabr/duplicator/releases/download/v2.0.0/Duplicator.sketchplugin.zip) archive with the plugin.
 2. Reveal plugins folder in finder ('Sketch App Menu' -> 'Plugins' -> 'Manage Plugins...' -> 'Gear Icon' -> 'Show Plugins Folder').
 3. Delete previously installed version of the plugin (`duplicator` folder or `Duplicator.sketchplugin` bundle)
-4. Un-zip downloaded archive and double-click `Duplicator.sketchplugin` file inside it.
+4. Un-zip downloaded archive and double-click `Duplicator.sketchplugin` file to install.
 
 ## Usage
 
-### Instant Cheatsheet
-I prefer to use keyboard shortcuts whenever possible, but I'm really bad at remembering them. A few years ago I found out that in order to remember them quickly it's very helpful to have a small cheat sheet that contains all the keyboard shortcuts right in front of my eyes while learning a new tool.
+### Duplicating layers
 
-Since this plugin is totally useless without shortcuts I decided to built cheat sheet in right into the plugin itself! This cheat sheet is just another plugin that embeds raster image containing shortcut reference into your current page.
+Select any layer and use `command-control + any arrow key` to duplicate it in a corresponding to the arrow key direction. Duplicated layer gets automatically selected, thus it's easy to create several duplicates of the same layer by repeating the command. By default plugin uses `10px` offset for regular layers. Offset could be adjusted in the `Settings` dialog:
 
-##### In order to see the cheat sheet, just run "Cheatsheet" plugin from the plugins menu:
+![Duplicating layers](docs/duplicating-layers.gif?raw=true)
 
-   ![Paste Cheatsheet](http://turbobabr.github.io/duplicator/images/paste-cheatsheet.png)
+### Duplicating multiple layers at once
 
-##### It will automatically embed the cheat sheet into your current page as a new artboard:
+It's possible to select several layers that belong to different groups or artboards and duplicate them at once. It's especially useful for grids generation:
 
-   ![Sketch Duplicator Plugin Cheatsheet](http://turbobabr.github.io/duplicator/images/plugin-cheatsheet.png)
+![Duplicating multiple layers at once](docs/duplicating-multiple-layers-at-once.gif?raw=true)
 
-### Quick Duplicate
+### Duplicating artboards and symbols
 
-This feature allows to create a copy of currently selected layers and automatically places it on an edge of selection bounds + 10 px offset.
+All layer types are supported.. this means that we can duplicate artboards and symbols! By default `100px` offset is used for spacing between duplicated artboards, but it could be adjusted in the `Settings` dialog:
 
-**How to use:**
+![Duplicating artboards and symbols](docs/duplicating-artboards-and-symbols.gif?raw=true)
 
-1. Select one or more layers to duplicate
-2. Duplicate selection:
-  * ⌘ + ⌃ + `RIGHT arrow key`: duplicate right
-  * ⌘ + ⌃ + `LEFT arrow key`: duplicate left
-  * ⌘ + ⌃ + `UP arrow key`: duplicate above
-  * ⌘ + ⌃ + `DOWN arrow key`: duplicate below
+### Manually adjusting offsets between duplicates
 
-**Note:** You can change a default spacing value in `duplicator.js` file. There is a special constant for that `var DEFAULT_SPACING = 10;` at the first line of the file.
+Create a first duplicate of a selected layer(s) using `command-control + arrow` shortcut and adjust vertical or horizontal spacing between original layer(s) and duplicate, then repeat in the same direction until you have the desired duplicates. This feature works for any types of layers, including artboards and symbols:
 
-### Step and Repeat
+![Manually adjusting offsets between duplicates](docs/remembering-offsets.gif?raw=true)
 
-This feature gives an ability to quickly duplicate and repeat selected layers by the same distance in a specified direction. This one is ideal for making grids and lists! There is a [built-in feature in Sketch](http://www.sketchtips.info/?tip=29) that does the same thing, but it requires a few extra steps to achieve the same result.
+### Duplicating layers a given number of times with custom offset
 
-**How to use:**
+In case you want to create a certain number of copies in a specified direction with specific offset between copies, you could use `command-control-shift + any arrow key` shortcuts to provide the required values and pick specific injection mode:
 
-1. Select one or more layers you want to duplicate multiple times
-2. Step and repeat selection with custom spacing:
-  * ⌘ + ⌃ + ⇧ + `RIGHT arrow key`: repeat right
-  * ⌘ + ⌃ + ⇧ + `LEFT arrow key`: repeat left
-  * ⌘ + ⌃ + ⇧ + `UP arrow key`: repeat above
-  * ⌘ + ⌃ + ⇧ + `DOWN arrow key`: repeat below
-3. Specify number of copies and distance between them in the popup dialog:
-   ![Step and Repeat Dialog](http://turbobabr.github.io/duplicator/images/step-and-repeat-dialog.png)
+![Repeating](docs/repeaters-custom-offsets.gif?raw=true)
 
+It's also possible to adjust offsets between duplicates in context by creating duplicate once using `command control + arrow` shortcut and adjusting vertical or horizontal spacing, then you could use `command-control-shift + the same arrow key` to create multiple copies at once. In such case offset will be picked up automatically:
+
+![Manually adjusting offsets between duplicates](docs/repeaters-adjusted-offsets.gif?raw=true)
+
+
+### Changing default settings
+
+Default settings could be changed in special dialog by selecting `Sketch Menu > Plugins > Duplication > Settings` menu item:
+
+![Settings Dialog](docs/settings-dialog.png?raw=true)
 
 ## Version history
 
-**Duplicator 1.0.0: 7/9/2014**
-* Initial Release
+**Duplicator 2.0.0: 8/3/2017**
+* Artboards and symbols support
+* Ability to manually adjust offsets between duplicates
+* Customizable injection mode
+* Sketch 46 support
 
 **Duplicator 1.1.0: 5/24/2016**
 * New bundle format support
 * Sketch 3.8+ support
 
+**Duplicator 1.0.0: 7/9/2014**
+* Initial Release
 
 ## Feedback
 
-If you discover any issue or have any suggestions for improvement of the plugin, please [open an issue](https://github.com/turbobabr/duplicator/issues) or find me on twitter [@turbobabr](http://twitter.com/turbobabr).
+If you discover  any issue or have any suggestions for improvement of the plugin, please [open an issue](https://github.com/turbobabr/duplicator/issues) or find me on twitter [@turbobabr](http://twitter.com/turbobabr).
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014 Andrey Shakhmin
+Copyright (c) 2014-2017 Andrey Shakhmin
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

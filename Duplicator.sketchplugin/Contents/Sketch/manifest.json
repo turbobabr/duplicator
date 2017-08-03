@@ -1,90 +1,83 @@
 {
-  "name" : "Duplicator",
-  "identifier" : "com.turbobabr.sketch.duplicator",
-  "version" : "1.1",
-  "description" : "A small Sketch plugin that allows quickly duplicate selected layers in a specified direction.",
-  "author" : "Andrey Shakhmin",
-  "homepage": "https://github.com/turbobabr/duplicator",
-  "commands" : [
+  "name": "Duplicator",
+  "identifier": "com.turbobabr.sketch.duplicator",
+  "author": "Andrey Shakhmin",
+  "compatibleVersion": 3,
+  "bundleVersion": 1,
+  "commands": [
     {
-      "script" : "plugin.js",
-      "handler" : "duplicateLeft",
-      "shortcut" : "control command ←",
-      "name" : "Duplicate Left",
-      "identifier" : "duplicateLeft"
+      "name": "Duplicate Left",
+      "identifier": "duplicateLeft",
+      "shortcut": "control command ←",
+      "script": "plugin.js"
     },
     {
-      "script" : "plugin.js",
-      "handler" : "duplicateRight",
-      "shortcut" : "control command →",
-      "name" : "Duplicate Right",
-      "identifier" : "duplicateRight"
+      "name": "Duplicate Right",
+      "identifier": "duplicateRight",
+      "shortcut": "control command →",
+      "script": "plugin.js"
     },
     {
-      "script" : "plugin.js",
-      "handler" : "duplicateAbove",
-      "shortcut" : "control command ↑",
-      "name" : "Duplicate Above",
-      "identifier" : "duplicateAbove"
+      "name": "Duplicate Above",
+      "identifier": "duplicateAbove",
+      "shortcut": "control command ↑",
+      "script": "plugin.js"
     },
     {
-      "script" : "plugin.js",
-      "handler" : "duplicateBelow",
-      "shortcut" : "control command ↓",
-      "name" : "Duplicate Below",
-      "identifier" : "duplicateBelow"
-    },
-
-
-    {
-      "script" : "plugin.js",
-      "handler" : "duplicateLeftRepeater",
-      "shortcut" : "control shift command ←",
-      "name" : "Duplicate Left Repeater",
-      "identifier" : "duplicateLeftRepeater"
+      "name": "Duplicate Below",
+      "identifier": "duplicateBelow",
+      "shortcut": "control command ↓",
+      "script": "plugin.js"
     },
     {
-      "script" : "plugin.js",
-      "handler" : "duplicateRightRepeater",
-      "shortcut" : "control shift command →",
-      "name" : "Duplicate Right Repeater",
-      "identifier" : "duplicateRightRepeater"
+      "name": "Repeat Left",
+      "identifier": "duplicateLeftRepeater",
+      "shortcut": "control shift command ←",
+      "script": "plugin.js"
     },
     {
-      "script" : "plugin.js",
-      "handler" : "duplicateAboveRepeater",
-      "shortcut" : "control shift command ↑",
-      "name" : "Duplicate Above Repeater",
-      "identifier" : "duplicateAboveRepeater"
+      "name": "Repeat Right",
+      "identifier": "duplicateRightRepeater",
+      "shortcut": "control shift command →",
+      "script": "plugin.js"
     },
     {
-      "script" : "plugin.js",
-      "handler" : "duplicateBelowRepeater",
-      "shortcut" : "control shift command ↓",
-      "name" : "Duplicate Below Repeater",
-      "identifier" : "duplicateBelowRepeater"
+      "name": "Repeat Above",
+      "identifier": "duplicateAboveRepeater",
+      "shortcut": "control shift command ↑",
+      "script": "plugin.js"
     },
-
-
     {
-      "script" : "plugin.js",
-      "handler" : "injectCheatSheet",
-      "name" : "Cheat Sheet",
-      "identifier" : "injectCheatSheet"
+      "name": "Repeat Below",
+      "identifier": "duplicateBelowRepeater",
+      "shortcut": "control shift command ↓",
+      "script": "plugin.js"
+    },
+    {
+      "name": "Settings...",
+      "identifier": "settings",
+      "script": "plugin.js"
     }
   ],
-
   "menu": {
+    "title": "Duplicator",
     "items": [
       "duplicateLeft",
       "duplicateRight",
       "duplicateAbove",
       "duplicateBelow",
+      "-",
       "duplicateLeftRepeater",
       "duplicateRightRepeater",
       "duplicateAboveRepeater",
       "duplicateBelowRepeater",
-      "injectCheatSheet"
+      "-",
+      "settings"
     ]
-  }
+  },
+  "version": "2.0.0",
+  "description": "A handy Sketch plugin for duplicating selected layers or artboards in a specified direction.",
+  "homepage": "https://github.com/turbobabr/duplicator#readme",
+  "disableCocoaScriptPreprocessor": true,
+  "appcast": "https://raw.githubusercontent.com/turbobabr/duplicator/master/appcast.xml"
 }
