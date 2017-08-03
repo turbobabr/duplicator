@@ -37,7 +37,7 @@ With Sketch Runner, just go to the `install` command and search for `duplicator`
 
 ### Remembering custom offsets
 
-![Hero](docs/remembering-offsets.gif?raw=true "Logo")
+![Hero](docs/remebering-offsets.gif?raw=true "Logo")
 
 ### Instant Cheatsheet
 I prefer to use keyboard shortcuts whenever possible, but I'm really bad at remembering them. A few years ago I found out that in order to remember them quickly it's very helpful to have a small cheat sheet that contains all the keyboard shortcuts right in front of my eyes while learning a new tool.
