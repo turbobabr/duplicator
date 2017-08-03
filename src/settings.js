@@ -69,7 +69,7 @@ export const showSettingsEditor = () => {
         list: [
           {
             name: InjectionMode.Default,
-            label: 'Default'
+            label: 'In Place'
           },
           {
             name: InjectionMode.BeforeSelection,
