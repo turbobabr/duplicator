@@ -245,6 +245,13 @@ const duplicate = (layers,options) => {
     allDuplicates = allDuplicates.concat(duplicates);
   });
 
+
+  // Adjust frames of parents of the duplicated layers.
+  let affectedParents = layers.valueForKeyPath('@distinctUnionOfObjects.parentGroup');
+  arrayFastEach(affectedParents,(layer) => {
+    layer.resizeToFitChildrenWithOption(1);
+  });
+
   arrayFastEach(layers,(layer) => {
     layer.select_byExtendingSelection(false,false);
   });

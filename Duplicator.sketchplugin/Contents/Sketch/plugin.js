@@ -18043,6 +18043,12 @@ var duplicate = function duplicate(layers, options) {
     allDuplicates = allDuplicates.concat(duplicates);
   });
 
+  // Adjust frames of parents of the duplicated layers.
+  var affectedParents = layers.valueForKeyPath('@distinctUnionOfObjects.parentGroup');
+  arrayFastEach(affectedParents, function (layer) {
+    layer.resizeToFitChildrenWithOption(1);
+  });
+
   arrayFastEach(layers, function (layer) {
     layer.select_byExtendingSelection(false, false);
   });

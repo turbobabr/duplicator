@@ -60,6 +60,9 @@ Default settings could be changed in special dialog by selecting `Sketch Menu > 
 
 ## Version history
 
+**Duplicator 2.0.1: 9/15/2017**
+* BUGFIX: Nested duplicated layers can't be selected on canvas
+
 **Duplicator 2.0.0: 8/3/2017**
 * Artboards and symbols support
 * Ability to manually adjust offsets between duplicates

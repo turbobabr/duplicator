@@ -1,6 +1,6 @@
 {
   "name": "duplicator",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A handy Sketch plugin for duplicating selected layers or artboards in a specified direction.",
   "main": "index.js",
   "scripts": {
