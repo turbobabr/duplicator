@@ -60,6 +60,9 @@ Default settings could be changed in special dialog by selecting `Sketch Menu > 
 
 ## Version history
 
+**Duplicator 2.0.2: 3/16/2018**
+* Sketch 49 support
+
 **Duplicator 2.0.1: 9/15/2017**
 * BUGFIX: Nested duplicated layers can't be selected on canvas
 
@@ -84,7 +87,7 @@ If you discover  any issue or have any suggestions for improvement of the plugin
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2017 Andrey Shakhmin
+Copyright (c) 2014-2018 Andrey Shakhmin
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
