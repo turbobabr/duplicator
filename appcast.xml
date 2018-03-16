@@ -6,18 +6,15 @@
         <description>A handy Sketch plugin for duplicating selected layers or artboards in a specified direction.</description>
         <language>en</language>
         <item>
-            <title>Duplicator 2.0.0</title>
+            <title>Duplicator 2.0.2</title>
             <description>
                 <![CDATA[
                     <ul>
-                        <li>Artboards and symbols support</li>
-                        <li>Ability to manually adjust offsets between duplicates</li>
-                        <li>Customizable injection mode</li>
-                        <li>Sketch 46 support</li>
+                        <li>Sketch 49 support</li>
                     </ul>
                 ]]>
             </description>
-            <enclosure url="https://github.com/turbobabr/duplicator/releases/download/v2.0.0/Duplicator.sketchplugin.zip" sparkle:version="2.0.0"/>
+            <enclosure url="https://github.com/turbobabr/duplicator/releases/download/v2.0.1/Duplicator.sketchplugin.zip" sparkle:version="2.0.1"/>
         </item>
         <item>
             <title>Duplicator 2.0.1</title>
@@ -30,5 +27,19 @@
             </description>
             <enclosure url="https://github.com/turbobabr/duplicator/releases/download/v2.0.1/Duplicator.sketchplugin.zip" sparkle:version="2.0.1"/>
         </item>
+        <item>
+            <title>Duplicator 2.0.0</title>
+            <description>
+                <![CDATA[
+                    <ul>
+                        <li>Artboards and symbols support</li>
+                        <li>Ability to manually adjust offsets between duplicates</li>
+                        <li>Customizable injection mode</li>
+                        <li>Sketch 46 support</li>
+                    </ul>
+                ]]>
+            </description>
+            <enclosure url="https://github.com/turbobabr/duplicator/releases/download/v2.0.0/Duplicator.sketchplugin.zip" sparkle:version="2.0.0"/>
+        </item>        
     </channel>
 </rss>

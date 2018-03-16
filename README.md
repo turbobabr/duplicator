@@ -10,7 +10,7 @@ With Sketch Runner, just go to the `install` command and search for `duplicator`
 
 ## Manual Installation
 
-1. Download [Duplicator.sketchplugin.zip](https://github.com/turbobabr/duplicator/releases/download/v2.0.0/Duplicator.sketchplugin.zip) archive with the plugin.
+1. Download [Duplicator.sketchplugin.zip](https://github.com/turbobabr/duplicator/releases/download/v2.0.2/Duplicator.sketchplugin.zip) archive with the plugin.
 2. Reveal plugins folder in finder ('Sketch App Menu' -> 'Plugins' -> 'Manage Plugins...' -> 'Gear Icon' -> 'Show Plugins Folder').
 3. Delete previously installed version of the plugin (`duplicator` folder or `Duplicator.sketchplugin` bundle)
 4. Un-zip downloaded archive and double-click `Duplicator.sketchplugin` file to install.
