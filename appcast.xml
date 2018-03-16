@@ -14,7 +14,7 @@
                     </ul>
                 ]]>
             </description>
-            <enclosure url="https://github.com/turbobabr/duplicator/releases/download/v2.0.1/Duplicator.sketchplugin.zip" sparkle:version="2.0.1"/>
+            <enclosure url="https://github.com/turbobabr/duplicator/releases/download/v2.0.2/Duplicator.sketchplugin.zip" sparkle:version="2.0.2"/>
         </item>
         <item>
             <title>Duplicator 2.0.1</title>
