@@ -6,6 +6,17 @@
         <description>A handy Sketch plugin for duplicating selected layers or artboards in a specified direction.</description>
         <language>en</language>
         <item>
+            <title>Duplicator 2.0.3</title>
+            <description>
+                <![CDATA[
+                    <ul>
+                        <li>Sketch 53 support</li>
+                    </ul>
+                ]]>
+            </description>
+            <enclosure url="https://github.com/turbobabr/duplicator/releases/download/v2.0.3/Duplicator.sketchplugin.zip" sparkle:version="2.0.3"/>
+        </item>
+        <item>
             <title>Duplicator 2.0.2</title>
             <description>
                 <![CDATA[

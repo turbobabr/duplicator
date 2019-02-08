@@ -75,7 +75,7 @@
       "settings"
     ]
   },
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "A handy Sketch plugin for duplicating selected layers or artboards in a specified direction.",
   "homepage": "https://github.com/turbobabr/duplicator#readme",
   "disableCocoaScriptPreprocessor": true,

@@ -124,7 +124,7 @@ var DEFAULTS_STORAGE_KEY = exports.DEFAULTS_STORAGE_KEY = 'com.turbobabr.duplica
   var undefined;
 
   /** Used as the semantic version number. */
-  var VERSION = '4.17.5';
+  var VERSION = '4.17.11';
 
   /** Used as the size to enable large array optimizations. */
   var LARGE_ARRAY_SIZE = 200;
@@ -388,7 +388,7 @@ var DEFAULTS_STORAGE_KEY = exports.DEFAULTS_STORAGE_KEY = 'com.turbobabr.duplica
   var reHasUnicode = RegExp('[' + rsZWJ + rsAstralRange  + rsComboRange + rsVarRange + ']');
 
   /** Used to detect strings that need a more robust regexp to match words. */
-  var reHasUnicodeWord = /[a-z][A-Z]|[A-Z]{2,}[a-z]|[0-9][a-zA-Z]|[a-zA-Z][0-9]|[^a-zA-Z0-9 ]/;
+  var reHasUnicodeWord = /[a-z][A-Z]|[A-Z]{2}[a-z]|[0-9][a-zA-Z]|[a-zA-Z][0-9]|[^a-zA-Z0-9 ]/;
 
   /** Used to assign default `context` object properties. */
   var contextProps = [
@@ -548,6 +548,14 @@ var DEFAULTS_STORAGE_KEY = exports.DEFAULTS_STORAGE_KEY = 'com.turbobabr.duplica
   /** Used to access faster Node.js helpers. */
   var nodeUtil = (function() {
     try {
+      // Use `util.types` for Node.js 10+.
+      var types = freeModule && freeModule.require && freeModule.require('util').types;
+
+      if (types) {
+        return types;
+      }
+
+      // Legacy `process.binding('util')` for Node.js < 10.
       return freeProcess && freeProcess.binding && freeProcess.binding('util');
     } catch (e) {}
   }());
@@ -1326,20 +1334,6 @@ var DEFAULTS_STORAGE_KEY = exports.DEFAULTS_STORAGE_KEY = 'com.turbobabr.duplica
       }
     }
     return result;
-  }
-
-  /**
-   * Gets the value at `key`, unless `key` is "__proto__".
-   *
-   * @private
-   * @param {Object} object The object to query.
-   * @param {string} key The key of the property to get.
-   * @returns {*} Returns the property value.
-   */
-  function safeGet(object, key) {
-    return key == '__proto__'
-      ? undefined
-      : object[key];
   }
 
   /**
@@ -3799,7 +3793,7 @@ var DEFAULTS_STORAGE_KEY = exports.DEFAULTS_STORAGE_KEY = 'com.turbobabr.duplica
           if (isArguments(objValue)) {
             newValue = toPlainObject(objValue);
           }
-          else if (!isObject(objValue) || (srcIndex && isFunction(objValue))) {
+          else if (!isObject(objValue) || isFunction(objValue)) {
             newValue = initCloneObject(srcValue);
           }
         }
@@ -6720,6 +6714,22 @@ var DEFAULTS_STORAGE_KEY = exports.DEFAULTS_STORAGE_KEY = 'com.turbobabr.duplica
         array[length] = isIndex(index, arrLength) ? oldArray[index] : undefined;
       }
       return array;
+    }
+
+    /**
+     * Gets the value at `key`, unless `key` is "__proto__".
+     *
+     * @private
+     * @param {Object} object The object to query.
+     * @param {string} key The key of the property to get.
+     * @returns {*} Returns the property value.
+     */
+    function safeGet(object, key) {
+      if (key == '__proto__') {
+        return;
+      }
+
+      return object[key];
     }
 
     /**
@@ -17839,6 +17849,23 @@ var arrayFastEach = function arrayFastEach(array, iteratee) {
   }
 };
 
+var groupBoundsForLayers = function groupBoundsForLayers(layers) {
+  if (toString.call(layers) === '[object Array]') {
+    layers = NSArray.arrayWithArray(layers);
+  }
+
+  var rects = layers.valueForKeyPath("@distinctUnionOfObjects.rect");
+
+  var totalRect = null,
+      count = rects.count();
+  for (var i = 0; i < count; i++) {
+    var rect = rects.objectAtIndex(i).rectValue();
+    totalRect = i == 0 ? rect : CGRectUnion(totalRect, rect);
+  }
+
+  return totalRect;
+};
+
 var groupLayersByParentGroup = function groupLayersByParentGroup(layers) {
   var result = NSMutableDictionary['new']();
 
@@ -17866,7 +17893,7 @@ var makeClustersDescriptor = function makeClustersDescriptor(clusters, direction
   var keys = clusters.allKeys();
   arrayFastEach(keys, function (key) {
     var cluster = clusters[key];
-    var bounds = MSLayerGroup.groupBoundsForContainer(MSLayerArray.arrayWithLayers(cluster));
+    var bounds = groupBoundsForLayers(cluster);
 
     var firstLayer = cluster.firstObject();
 
@@ -17960,7 +17987,7 @@ var duplicate = function duplicate(layers, options) {
 
   arrayFastEach(keys, function (key) {
     var cluster = clusters[key];
-    var originalBounds = MSLayerGroup.groupBoundsForContainer(MSLayerArray.arrayWithLayers(cluster));
+    var originalBounds = groupBoundsForLayers(cluster);
 
     var offsetDelta = 0;
     if (prevStencilDescriptor) {
@@ -18007,7 +18034,6 @@ var duplicate = function duplicate(layers, options) {
     if (injectionMode !== _constants.InjectionMode.Default) {
       var parentGroup = cluster.firstObject().parentGroup();
       if (!parentGroup) {
-        print("[duplicator]: Can't find parent group!");
         return;
       }
 
@@ -18016,12 +18042,12 @@ var duplicate = function duplicate(layers, options) {
           parentGroup.insertLayers_afterLayer(duplicates, cluster.lastObject());
           break;
         case _constants.InjectionMode.BeforeSelection:
-          parentGroup.insertLayers_beforeLayer(duplicates, cluster.firstObject());
+          parentGroup.insertLayers_beforeLayer(NSArray.arrayWithArray(duplicates).reverseObjectEnumerator().allObjects(), cluster.firstObject());
           break;
       }
     }
 
-    var newBounds = MSLayerGroup.groupBoundsForContainer(MSLayerArray.arrayWithLayers(duplicates));
+    var newBounds = groupBoundsForLayers(duplicates);
     arrayFastEach(duplicates, function (layer) {
 
       var offset = (layer.isKindOfClass(MSArtboardGroup) ? defaultArtboardOffset : defaultOffset) + (!options.ignoreOffsetDelta ? offsetDelta : 0);
@@ -18059,7 +18085,8 @@ var duplicate = function duplicate(layers, options) {
   // Adjust frames of parents of the duplicated layers.
   var affectedParents = layers.valueForKeyPath('@distinctUnionOfObjects.parentGroup');
   arrayFastEach(affectedParents, function (layer) {
-    layer.resizeToFitChildrenWithOption(1);
+    // FIXME: It's gone! 🤔
+    layer.fixGeometryWithOptions(1);
   });
 
   arrayFastEach(layers, function (layer) {
@@ -18177,7 +18204,7 @@ var gatherClustersInfo = function gatherClustersInfo(layers, options) {
   var offsetDelta = 0;
   arrayFastEach(keys, function (key) {
     var cluster = clusters[key];
-    var originalBounds = MSLayerGroup.groupBoundsForContainer(MSLayerArray.arrayWithLayers(cluster));
+    var originalBounds = groupBoundsForLayers(cluster);
 
     if (prevStencilDescriptor) {
       if (compareClustersDescriptors(currentStencilDescriptor, prevStencilDescriptor)) {

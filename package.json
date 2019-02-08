@@ -1,6 +1,6 @@
 {
   "name": "duplicator",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "A handy Sketch plugin for duplicating selected layers or artboards in a specified direction.",
   "scripts": {
     "build": "skpm-build",
@@ -33,6 +33,6 @@
     ]
   },
   "dependencies": {
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.11"
   }
 }

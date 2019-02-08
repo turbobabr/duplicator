@@ -30,10 +30,26 @@ const arrayFastEach = (array,iteratee) => {
   }
 };
 
+var groupBoundsForLayers = function(layers) {
+  if(toString.call(layers) === '[object Array]') {
+    layers = NSArray.arrayWithArray(layers);
+  }
+
+  var rects = layers.valueForKeyPath("@distinctUnionOfObjects.rect");
+
+  var totalRect = null, count = rects.count();
+  for(var i=0;i<count;i++) {
+    const rect = rects.objectAtIndex(i).rectValue();
+    totalRect = i == 0 ? rect : CGRectUnion(totalRect,rect);
+  }
+
+  return totalRect;
+};
+
 const groupLayersByParentGroup = (layers) => {
   let result = NSMutableDictionary.new();
 
-  const distinctParentIDs = layers.valueForKeyPath("@distinctUnionOfObjects.parentGroup.objectID");
+  const distinctParentIDs = layers.valueForKeyPath("@distinctUnionOfObjects.parentGroup.objectID");  
   for (let i = 0 ;i< distinctParentIDs.count();i++) {
     const objectID = distinctParentIDs.objectAtIndex(i);
 
@@ -57,7 +73,7 @@ const makeClustersDescriptor = (clusters,direction) => {
   let keys = clusters.allKeys();
   arrayFastEach(keys,(key) => {
     let cluster = clusters[key];
-    let bounds = MSLayerGroup.groupBoundsForContainer(MSLayerArray.arrayWithLayers(cluster));
+    let bounds = groupBoundsForLayers(cluster);
 
     let firstLayer = cluster.firstObject();
 
@@ -90,7 +106,7 @@ const compareClustersDescriptors = (clustersA,clustersB) => {
     if(clustersB.snapshot[hashKey]) {
       let hashA = clustersA.snapshot[hashKey];
       let hashB = clustersB.snapshot[hashKey];
-      if(!hashA.isEqualToString(hashB)) {
+      if(!hashA.isEqualToString(hashB)) {        
         return false;
       }
     } else {
@@ -134,7 +150,7 @@ const duplicate = (layers,options) => {
   let currentStencilDescriptor = makeClustersDescriptor(clusters,direction);
 
   let prevStencilDescriptor = null;
-  if(Storage.exists(PREVIOUS_STENCIL_DESCRIPTOR_KEY)) {
+  if(Storage.exists(PREVIOUS_STENCIL_DESCRIPTOR_KEY)) {    
     prevStencilDescriptor = Storage.get(PREVIOUS_STENCIL_DESCRIPTOR_KEY);
   }
 
@@ -146,7 +162,7 @@ const duplicate = (layers,options) => {
 
   arrayFastEach(keys,(key) => {
     let cluster = clusters[key];
-    let originalBounds = MSLayerGroup.groupBoundsForContainer(MSLayerArray.arrayWithLayers(cluster))
+    let originalBounds = groupBoundsForLayers(cluster);
 
     let offsetDelta = 0;
     if(prevStencilDescriptor) {
@@ -194,7 +210,6 @@ const duplicate = (layers,options) => {
     if(injectionMode !== InjectionMode.Default) {
       let parentGroup = cluster.firstObject().parentGroup();
       if(!parentGroup) {
-        print("[duplicator]: Can't find parent group!");
         return;
       }
 
@@ -203,12 +218,12 @@ const duplicate = (layers,options) => {
           parentGroup.insertLayers_afterLayer(duplicates,cluster.lastObject());
           break;
         case InjectionMode.BeforeSelection:
-          parentGroup.insertLayers_beforeLayer(duplicates,cluster.firstObject());
+          parentGroup.insertLayers_beforeLayer(NSArray.arrayWithArray(duplicates).reverseObjectEnumerator().allObjects(),cluster.firstObject());
           break;
       }
     }
 
-    let newBounds = MSLayerGroup.groupBoundsForContainer(MSLayerArray.arrayWithLayers(duplicates));
+    let newBounds = groupBoundsForLayers(duplicates);
     arrayFastEach(duplicates,(layer) => {
 
       const offset = (layer.isKindOfClass(MSArtboardGroup) ? defaultArtboardOffset : defaultOffset) + (!options.ignoreOffsetDelta ? offsetDelta : 0);
@@ -249,7 +264,8 @@ const duplicate = (layers,options) => {
   // Adjust frames of parents of the duplicated layers.
   let affectedParents = layers.valueForKeyPath('@distinctUnionOfObjects.parentGroup');
   arrayFastEach(affectedParents,(layer) => {
-    layer.resizeToFitChildrenWithOption(1);
+    // FIXME: It's gone! 🤔
+    layer.fixGeometryWithOptions(1);
   });
 
   arrayFastEach(layers,(layer) => {
@@ -366,7 +382,7 @@ const gatherClustersInfo = (layers,options) => {
   let offsetDelta = 0;
   arrayFastEach(keys,(key) => {
     let cluster = clusters[key];
-    let originalBounds = MSLayerGroup.groupBoundsForContainer(MSLayerArray.arrayWithLayers(cluster))
+    let originalBounds = groupBoundsForLayers(cluster);
 
 
     if(prevStencilDescriptor) {
