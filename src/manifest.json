@@ -4,6 +4,7 @@
 	"author" : "Andrey Shakhmin",
 	"compatibleVersion": 3,
 	"bundleVersion": 1,
+	"icon": "ic-logo.png",
 	"commands": [
 		{
 			"name": "Duplicate Left",

@@ -11,6 +11,8 @@
                 <![CDATA[
                     <ul>
                         <li>Sketch 53 support</li>
+                        <li>BUGFIX: Wrong layers ordering for `Before Selection` injection mode</li>
+                        <li>BUGFIX: Added missing icon</li>
                     </ul>
                 ]]>
             </description>

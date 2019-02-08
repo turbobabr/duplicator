@@ -63,6 +63,7 @@ Default settings could be changed in special dialog by selecting `Sketch Menu > 
 **Duplicator 2.0.3: 2/8/2019**
 * Sketch 53 support
 * BUGFIX: Wrong layers ordering for `Before Selection` injection mode 
+* BUGFIX: Added missing icon
 
 **Duplicator 2.0.2: 3/16/2018**
 * Sketch 49 support
